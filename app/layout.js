@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
               <h4 className="font-serif text-md text-amber-50 tracking-wider mb-4">Contact Support</h4>
               <p className="text-sm text-amber-50/60 mb-2">Have questions about our remedies?</p>
               <a 
-                href="https://wa.me/91XXXXXXXXXX?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products."
+                href="https://wa.me/917038369618?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-gold hover:underline text-sm font-medium block mb-4"

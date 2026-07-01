@@ -15,10 +15,12 @@ export default function AdminDashboardPage() {
     benefits: ["", "", "", ""],
     price: 0,
     slug: "",
+    image: "",
   });
   const [showAddForm, setShowAddForm] = useState(false);
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
+  const [uploading, setUploading] = useState(false);
   const [message, setMessage] = useState({ text: "", isError: false });
   const router = useRouter();
 
@@ -98,6 +100,37 @@ export default function AdminDashboardPage() {
     }
   };
 
+  const handleFileUpload = async (e, isEdit = false) => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    setUploading(true);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    try {
+      const res = await fetch("/api/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        if (isEdit) {
+          setEditingProduct({ ...editingProduct, image: data.url });
+        } else {
+          setNewProduct({ ...newProduct, image: data.url });
+        }
+        showFeedback("Image uploaded successfully!");
+      } else {
+        showFeedback(data.error || "Image upload failed", true);
+      }
+    } catch (err) {
+      showFeedback("Failed to upload image to server", true);
+    } finally {
+      setUploading(false);
+    }
+  };
+
   const handleSaveEdit = async (e) => {
     e.preventDefault();
     const updated = products.map((p) =>
@@ -121,7 +154,8 @@ export default function AdminDashboardPage() {
       id,
       slug,
       price: Number(newProduct.price),
-      benefits: newProduct.benefits.filter(b => b.trim() !== "")
+      benefits: newProduct.benefits.filter(b => b.trim() !== ""),
+      image: newProduct.image.trim() || "",
     };
 
     const updated = [...products, productToAdd];
@@ -135,6 +169,7 @@ export default function AdminDashboardPage() {
         benefits: ["", "", "", ""],
         price: 0,
         slug: "",
+        image: "",
       });
     }
   };
@@ -177,7 +212,7 @@ export default function AdminDashboardPage() {
             <Logo className="w-12 h-12 text-emerald-800" showText={false} />
             <div>
               <h1 className="font-serif text-3xl font-bold">Admin Control Center</h1>
-              <p className="text-xs text-emerald-950/60 font-semibold uppercase tracking-wider mt-1">Manage Catalog &amp; Prices</p>
+              <p className="text-xs text-emerald-950/60 font-semibold uppercase tracking-wider mt-1">Manage Catalog, Prices &amp; Media</p>
             </div>
           </div>
           <div className="flex gap-4 mt-4 sm:mt-0">
@@ -236,6 +271,40 @@ export default function AdminDashboardPage() {
                   </div>
                 </div>
 
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div>
+                    <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Product Slug</label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white"
+                      value={editingProduct.slug}
+                      onChange={(e) => setEditingProduct({ ...editingProduct, slug: e.target.value })}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Product Image URL / Upload</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        placeholder="e.g. /uploads/image.jpg"
+                        className="flex-grow px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white text-sm"
+                        value={editingProduct.image || ""}
+                        onChange={(e) => setEditingProduct({ ...editingProduct, image: e.target.value })}
+                      />
+                      <label className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[10px] py-2.5 px-4 rounded-xl flex items-center justify-center cursor-pointer select-none uppercase tracking-wider flex-shrink-0">
+                        {uploading ? "..." : "Upload File"}
+                        <input
+                          type="file"
+                          accept="image/*"
+                          className="hidden"
+                          onChange={(e) => handleFileUpload(e, true)}
+                        />
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Description</label>
                   <textarea
@@ -250,13 +319,13 @@ export default function AdminDashboardPage() {
                 <div>
                   <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Key Benefits</label>
                   <div className="space-y-2">
-                    {editingProduct.benefits.map((benefit, idx) => (
+                    {[0, 1, 2, 3].map((idx) => (
                       <input
                         key={idx}
                         type="text"
                         placeholder={`Benefit ${idx + 1}`}
                         className="w-full px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white"
-                        value={benefit}
+                        value={editingProduct.benefits[idx] || ""}
                         onChange={(e) => handleEditBenefitChange(idx, e.target.value)}
                       />
                     ))}
@@ -273,7 +342,7 @@ export default function AdminDashboardPage() {
                   </button>
                   <button
                     type="submit"
-                    disabled={actionLoading}
+                    disabled={actionLoading || uploading}
                     className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs py-3 px-6 rounded-full tracking-wider uppercase transition-colors cursor-pointer disabled:opacity-50"
                   >
                     {actionLoading ? "Saving..." : "Save Changes"}
@@ -338,6 +407,28 @@ export default function AdminDashboardPage() {
               </div>
 
               <div>
+                <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Product Image URL / Upload (optional)</label>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="e.g. /uploads/my-oil.jpg or https://..."
+                    className="flex-grow px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white/50 text-sm"
+                    value={newProduct.image}
+                    onChange={(e) => setNewProduct({ ...newProduct, image: e.target.value })}
+                  />
+                  <label className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[10px] py-2.5 px-4 rounded-xl flex items-center justify-center cursor-pointer select-none uppercase tracking-wider flex-shrink-0">
+                    {uploading ? "..." : "Upload File"}
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      onChange={(e) => handleFileUpload(e, false)}
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div>
                 <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Description</label>
                 <textarea
                   rows={4}
@@ -375,7 +466,7 @@ export default function AdminDashboardPage() {
                 </button>
                 <button
                   type="submit"
-                  disabled={actionLoading}
+                  disabled={actionLoading || uploading}
                   className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs py-3 px-6 rounded-full tracking-wider uppercase transition-colors cursor-pointer disabled:opacity-50"
                 >
                   {actionLoading ? "Adding..." : "Add Product"}
@@ -399,8 +490,21 @@ export default function AdminDashboardPage() {
                 {products.map((product) => (
                   <tr key={product.id} className="hover:bg-emerald-950/5 transition-colors">
                     <td className="py-4 px-4 max-w-sm">
-                      <div className="font-serif text-base font-semibold text-emerald-950">{product.name}</div>
-                      <div className="text-xs text-emerald-950/60 line-clamp-1 mt-0.5">{product.description}</div>
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-emerald-950/5 flex items-center justify-center overflow-hidden border border-emerald-950/5 flex-shrink-0">
+                          {product.image ? (
+                            <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+                          ) : (
+                            <svg className="w-6 h-6 text-emerald-800/30" viewBox="0 0 24 24" fill="currentColor">
+                              <path d="M12,2A15,15 0 0,0 2,17C2,17 7,12 12,12C12,12 11,17 16,17C21,17 22,2 22,2C22,2 17,2 12,2Z" />
+                            </svg>
+                          )}
+                        </div>
+                        <div>
+                          <div className="font-serif text-base font-semibold text-emerald-950">{product.name}</div>
+                          <div className="text-xs text-emerald-950/60 line-clamp-1 mt-0.5">{product.description}</div>
+                        </div>
+                      </div>
                     </td>
                     <td className="py-4 px-4 text-right font-bold text-emerald-950 font-mono">
                       ₹{product.price}
