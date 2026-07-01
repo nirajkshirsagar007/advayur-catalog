@@ -1,65 +1,154 @@
-import Image from "next/image";
+import Link from "next/link";
+import products from "@/data/products.json";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+    <div className="bg-amber-50 min-h-screen">
+      {/* Hero Section */}
+      <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/10 via-amber-50 to-amber-50 border-b border-emerald-950/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-950/10 bg-amber-50/50 mb-6 backdrop-blur-sm">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent-gold animate-pulse"></span>
+            <span className="text-[11px] font-sans font-semibold uppercase tracking-widest text-emerald-950/80">
+              Introducing Our Autumn Harvest Remedies
+            </span>
+          </div>
+          
+          <h1 className="font-serif text-5xl md:text-7xl text-emerald-950 tracking-tight leading-tight max-w-4xl mx-auto font-semibold">
+            Align Your Body, Mind, &amp; Spirit With <span className="italic text-emerald-900">Nature</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+          
+          <p className="mt-6 text-lg md:text-xl text-emerald-950/70 font-sans max-w-2xl mx-auto leading-relaxed">
+            Discover premium, doctor-formulated Ayurvedic treatments designed to restore balance and ignite your internal vitality.
+          </p>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-4">
+            <a 
+              href="#catalog"
+              className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-sm font-semibold px-8 py-3.5 rounded-full tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Explore the Catalog
+            </a>
+            <a 
+              href="#about"
+              className="border border-emerald-950/20 hover:border-emerald-950/40 text-emerald-950 font-sans text-sm font-semibold px-8 py-3.5 rounded-full tracking-wider uppercase transition-all duration-300 bg-amber-50/20 hover:bg-amber-50/80"
             >
-              Learning
-            </a>{" "}
-            center.
+              Our Heritage
+            </a>
+          </div>
+        </div>
+
+        {/* Dynamic backgrounds design */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-emerald-800/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/3 right-1/4 -translate-y-1/2 translate-x-1/2 w-[400px] h-[400px] bg-accent-gold/10 rounded-full blur-3xl pointer-events-none"></div>
+      </section>
+
+      {/* Catalog Grid Section */}
+      <section id="catalog" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 scroll-mt-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="font-serif text-3xl md:text-4xl text-emerald-950 tracking-wide font-semibold">
+            Signature Formulations
+          </h2>
+          <div className="h-0.5 w-16 bg-accent-gold mx-auto mt-4"></div>
+          <p className="mt-4 text-emerald-950/60 font-sans">
+            Hand-crafted in micro-batches with high-potency wildcrafted botanicals. 
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Product Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {products.map((product) => (
+            <div 
+              key={product.id} 
+              className="glass-card rounded-2xl p-6 flex flex-col justify-between hover-lift border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)] transition-all duration-300"
+            >
+              <div>
+                {/* Visual Placeholders */}
+                <div className="aspect-[4/5] w-full bg-emerald-950/5 rounded-xl mb-6 relative overflow-hidden flex items-center justify-center border border-emerald-950/5">
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-100/50 to-transparent"></div>
+                  
+                  {/* Subtle Ayurvedic leaf outline representation using pure CSS/SVG */}
+                  <svg className="w-16 h-16 text-emerald-800/20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C8.38,19.9 10.2,19.34 11.75,18.06C14.89,15.5 16,11.5 17,8M12,2A15,15 0 0,0 2,17C2,17 7,12 12,12C12,12 11,17 16,17C21,17 22,2 22,2C22,2 17,2 12,2Z" />
+                  </svg>
+                  
+                  {/* Category Pill */}
+                  <span className="absolute bottom-3 left-3 bg-amber-50/90 text-emerald-950 text-[10px] font-sans font-bold uppercase tracking-widest px-2.5 py-1 rounded-md border border-emerald-950/5">
+                    100% Organic
+                  </span>
+                </div>
+
+                <h3 className="font-serif text-xl text-emerald-950 font-medium group-hover:text-emerald-800 transition-colors">
+                  {product.name}
+                </h3>
+                
+                <p className="mt-2 text-emerald-950/65 font-sans text-sm line-clamp-2 leading-relaxed">
+                  {product.description}
+                </p>
+
+                {/* Benefits Preview */}
+                <div className="mt-4 pt-4 border-t border-emerald-900/5">
+                  <p className="text-[11px] font-sans font-bold uppercase tracking-wider text-emerald-900/60 mb-2">Key Benefits</p>
+                  <ul className="space-y-1">
+                    {product.benefits.slice(0, 2).map((benefit, index) => (
+                      <li key={index} className="text-xs text-emerald-950/80 font-sans flex items-start gap-1.5">
+                        <span className="text-emerald-800 mt-0.5">•</span>
+                        <span className="line-clamp-1">{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-emerald-900/5 flex items-center justify-between">
+                <div>
+                  <span className="text-xs font-sans text-emerald-950/50 uppercase tracking-widest block">Price</span>
+                  <span className="font-sans text-lg font-bold text-emerald-950">₹{product.price}</span>
+                </div>
+                
+                <Link 
+                  href={`/product/${product.slug}`}
+                  className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs font-semibold px-4 py-2.5 rounded-full tracking-wider uppercase transition-colors"
+                >
+                  View Details
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
-      </main>
+      </section>
+
+      {/* Brand Heritage Section */}
+      <section id="about" className="bg-emerald-950 text-amber-50 py-24 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <span className="font-serif text-lg italic text-accent-gold block mb-2">Our Heritage &amp; Promise</span>
+          <h2 className="font-serif text-3xl md:text-4xl tracking-wide mb-6">Ancient Wisdom for Modern Wellness</h2>
+          <p className="text-amber-50/70 font-sans max-w-3xl mx-auto leading-relaxed mb-8">
+            At Advayur, we believe that pure beauty and vibrant wellness come from maintaining harmony within. 
+            Every single batch of our remedies is crafted in strict accordance with centuries-old Ayurvedic scripts, 
+            blended to address modern environmental and physiological stressors.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-amber-50/10">
+            <div>
+              <p className="font-serif text-2xl text-accent-gold font-bold">100%</p>
+              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Sustainably Harvested</p>
+            </div>
+            <div>
+              <p className="font-serif text-2xl text-accent-gold font-bold">Zero</p>
+              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Synthetic Additives</p>
+            </div>
+            <div>
+              <p className="font-serif text-2xl text-accent-gold font-bold">Batch</p>
+              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Tested for Purity</p>
+            </div>
+            <div>
+              <p className="font-serif text-2xl text-accent-gold font-bold">Direct</p>
+              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Farmer Partnerships</p>
+            </div>
+          </div>
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-900/20 rounded-full blur-3xl pointer-events-none"></div>
+      </section>
     </div>
   );
 }

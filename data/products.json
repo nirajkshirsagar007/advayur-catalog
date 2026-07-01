@@ -1,0 +1,54 @@
+[
+  {
+    "id": "1",
+    "name": "Kumkumadi Facial Oil",
+    "description": "A luxurious blend of saffron, sandalwood, and precious herbs crafted to revitalize your skin, restoring its natural luminosity and evening out skin tone.",
+    "benefits": [
+      "Brightens complexion and adds a natural glow",
+      "Reduces hyperpigmentation and dark spots",
+      "Hydrates deeply and improves skin elasticity",
+      "Combats early signs of aging and fine lines"
+    ],
+    "price": 1299,
+    "slug": "kumkumadi-facial-oil"
+  },
+  {
+    "id": "2",
+    "name": "Ashwagandha Vitality Elixir",
+    "description": "An adaptogenic powerhouse designed to help your body manage stress, boost energy levels, and improve mental focus while fostering overall vitality.",
+    "benefits": [
+      "Reduces cortisol levels and manages daily stress",
+      "Enhances physical stamina and energy levels",
+      "Supports cognitive functions and mental clarity",
+      "Promotes restful sleep and deep relaxation"
+    ],
+    "price": 899,
+    "slug": "ashwagandha-vitality-elixir"
+  },
+  {
+    "id": "3",
+    "name": "Triphala Digest Tonic",
+    "description": "A classic Ayurvedic formulation of three potent fruits—amalaki, bibhitaki, and haritaki—to gently detoxify, cleanse, and support optimal digestion.",
+    "benefits": [
+      "Promotes regular digestion and bowel health",
+      "Cleanses the gastrointestinal tract of toxins",
+      "Acts as a powerful antioxidant blend",
+      "Supports immune system function and vitality"
+    ],
+    "price": 649,
+    "slug": "triphala-digest-tonic"
+  },
+  {
+    "id": "4",
+    "name": "Brahmi Focus Capsules",
+    "description": "A premium herbal supplement known for its capacity to nurture memory, focus, and clarity of thought, supporting nervous system resilience.",
+    "benefits": [
+      "Improves memory retention and learning capacity",
+      "Boosts concentration and logical thinking",
+      "Calms the mind and reduces nervous tension",
+      "Protects brain cells from oxidative stress"
+    ],
+    "price": 799,
+    "slug": "brahmi-focus-capsules"
+  }
+]

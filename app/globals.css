@@ -1,26 +1,54 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfbf7;      /* bg-amber-50 equivalent */
+  --foreground: #022c22;      /* text-emerald-950 equivalent */
+  --primary-green: #065f46;   /* bg-emerald-800 equivalent */
+  --primary-green-dark: #044e39;
+  --accent-gold: #b38b4d;
+  --whatsapp-color: #25D366;
+  --whatsapp-color-dark: #128C7E;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-primary-green: var(--primary-green);
+  --color-accent-gold: var(--accent-gold);
+  --color-whatsapp: var(--whatsapp-color);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+/* Micro-animations and custom effects */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.gold-gradient-border {
+  border-image: linear-gradient(to right, #b38b4d, #f5e3c3, #b38b4d) 1;
 }
