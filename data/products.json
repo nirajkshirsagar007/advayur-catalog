@@ -48,7 +48,19 @@
       "Calms the mind and reduces nervous tension",
       "Protects brain cells from oxidative stress"
     ],
-    "price": 799,
+    "price": 200,
     "slug": "brahmi-focus-capsules"
+  },
+  {
+    "id": "1782888799479",
+    "name": "Camphor Soap",
+    "description": "Camphor soap is a natural, multipurpose cleansing bar primarily valued for its purifying, cooling, and soothing properties.",
+    "benefits": [
+      "Soothes Irritation & Rashes",
+      "Acne & Oil Control",
+      "combat skin irritations and promote daily freshness"
+    ],
+    "price": 100,
+    "slug": "camphor-soap"
   }
 ]

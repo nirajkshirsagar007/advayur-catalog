@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --background: #fdfbf7;      /* bg-amber-50 equivalent */
   --foreground: #022c22;      /* text-emerald-950 equivalent */
