@@ -36,12 +36,22 @@ export default async function ProductDetailPage({ params }) {
           {/* Left Column: Product Visuals */}
           <div className="glass-card rounded-3xl p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
             <div className="aspect-[4/5] w-full bg-emerald-950/5 rounded-2xl relative overflow-hidden flex items-center justify-center border border-emerald-950/5">
-              <div className="absolute inset-0 bg-gradient-to-br from-amber-100/50 to-transparent"></div>
-              
-              {/* Premium botanical graphic element */}
-              <svg className="w-32 h-32 text-emerald-800/20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C8.38,19.9 10.2,19.34 11.75,18.06C14.89,15.5 16,11.5 17,8M12,2A15,15 0 0,0 2,17C2,17 7,12 12,12C12,12 11,17 16,17C21,17 22,2 22,2C22,2 17,2 12,2Z" />
-              </svg>
+              {product.image ? (
+                <img 
+                  src={product.image} 
+                  alt={product.name} 
+                  className="w-full h-full object-cover"
+                />
+              ) : (
+                <>
+                  <div className="absolute inset-0 bg-gradient-to-br from-amber-100/50 to-transparent"></div>
+                  
+                  {/* Premium botanical graphic element */}
+                  <svg className="w-32 h-32 text-emerald-800/20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C8.38,19.9 10.2,19.34 11.75,18.06C14.89,15.5 16,11.5 17,8M12,2A15,15 0 0,0 2,17C2,17 7,12 12,12C12,12 11,17 16,17C21,17 22,2 22,2C22,2 17,2 12,2Z" />
+                  </svg>
+                </>
+              )}
 
               <span className="absolute top-4 left-4 bg-emerald-950 text-white text-[10px] font-sans font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10">
                 Premium Grade

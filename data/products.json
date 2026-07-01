@@ -10,7 +10,8 @@
       "Combats early signs of aging and fine lines"
     ],
     "price": 1299,
-    "slug": "kumkumadi-facial-oil"
+    "slug": "kumkumadi-facial-oil",
+    "image": ""
   },
   {
     "id": "2",
@@ -23,7 +24,8 @@
       "Promotes restful sleep and deep relaxation"
     ],
     "price": 899,
-    "slug": "ashwagandha-vitality-elixir"
+    "slug": "ashwagandha-vitality-elixir",
+    "image": ""
   },
   {
     "id": "3",
@@ -36,7 +38,8 @@
       "Supports immune system function and vitality"
     ],
     "price": 649,
-    "slug": "triphala-digest-tonic"
+    "slug": "triphala-digest-tonic",
+    "image": ""
   },
   {
     "id": "4",
@@ -49,7 +52,8 @@
       "Protects brain cells from oxidative stress"
     ],
     "price": 200,
-    "slug": "brahmi-focus-capsules"
+    "slug": "brahmi-focus-capsules",
+    "image": ""
   },
   {
     "id": "1782888799479",
@@ -61,6 +65,7 @@
       "combat skin irritations and promote daily freshness"
     ],
     "price": 100,
-    "slug": "camphor-soap"
+    "slug": "camphor-soap",
+    "image": "/uploads/product-1782891468579.jpeg"
   }
 ]
