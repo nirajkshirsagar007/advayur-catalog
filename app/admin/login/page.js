@@ -18,9 +18,15 @@ export default function AdminLoginPage() {
   }, []);
 
   const checkSetupState = async () => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+      setError("Connection timed out. Showing login screen.");
+    }, 4000);
+
     try {
       const res = await fetch("/api/auth");
       const data = await res.json();
+      clearTimeout(timeout);
       if (res.ok) {
         if (data.setupRequired) {
           setSetupRequired(true);
@@ -29,6 +35,7 @@ export default function AdminLoginPage() {
         }
       }
     } catch (err) {
+      clearTimeout(timeout);
       setError("Unable to connect to authentication server.");
     } finally {
       setLoading(false);
