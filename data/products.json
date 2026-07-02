@@ -1,71 +1,58 @@
 [
   {
     "id": "1",
-    "name": "Kumkumadi Facial Oil",
-    "description": "A luxurious blend of saffron, sandalwood, and precious herbs crafted to revitalize your skin, restoring its natural luminosity and evening out skin tone.",
+    "name": "Eladi & Coconut Milk Soap",
+    "description": "A luxury bathing bar crafted with therapeutic Eladi oils, cardamom, and fresh coconut milk to deeply nourish, soften, and improve skin texture, leaving it with a healthy glow.",
     "benefits": [
-      "Brightens complexion and adds a natural glow",
-      "Reduces hyperpigmentation and dark spots",
-      "Hydrates deeply and improves skin elasticity",
-      "Combats early signs of aging and fine lines"
+      "Deeply hydrates and prevents dry, flaky skin",
+      "Improves skin tone and natural complexion",
+      "Calms environmental skin irritation and redness",
+      "Infuses skin with a delicate, calming botanical aroma"
     ],
-    "price": 1299,
-    "slug": "kumkumadi-facial-oil",
+    "price": 299,
+    "slug": "eladi-coconut-milk-soap",
     "image": ""
   },
   {
     "id": "2",
-    "name": "Ashwagandha Vitality Elixir",
-    "description": "An adaptogenic powerhouse designed to help your body manage stress, boost energy levels, and improve mental focus while fostering overall vitality.",
+    "name": "Kesar Neem Face Wash",
+    "description": "A gentle, soap-free facial cleanser combining the purifying qualities of organic neem with the brightening benefits of Kashmiri saffron (Kesar) for acne-free, glowing skin.",
     "benefits": [
-      "Reduces cortisol levels and manages daily stress",
-      "Enhances physical stamina and energy levels",
-      "Supports cognitive functions and mental clarity",
-      "Promotes restful sleep and deep relaxation"
+      "Deeply cleanses pores and controls excess oil",
+      "Combats acne-causing bacteria and prevents breakouts",
+      "Brightens dark spots and skin pigmentation",
+      "Maintains natural skin moisture barrier"
     ],
-    "price": 899,
-    "slug": "ashwagandha-vitality-elixir",
+    "price": 349,
+    "slug": "kesar-neem-face-wash",
     "image": ""
   },
   {
     "id": "3",
-    "name": "Triphala Digest Tonic",
-    "description": "A classic Ayurvedic formulation of three potent fruits—amalaki, bibhitaki, and haritaki—to gently detoxify, cleanse, and support optimal digestion.",
+    "name": "Almond & Honey Lip Balm",
+    "description": "An ultra-nourishing Ayurvedic lip butter enriched with cold-pressed sweet almond oil, organic forest honey, and natural beeswax to repair and prevent chapped lips.",
     "benefits": [
-      "Promotes regular digestion and bowel health",
-      "Cleanses the gastrointestinal tract of toxins",
-      "Acts as a powerful antioxidant blend",
-      "Supports immune system function and vitality"
+      "Locks in moisture for long-lasting hydration",
+      "Softens, smooths, and repairs dry, cracked lips",
+      "Protects lips from cold winds and sun damage",
+      "100% natural formula without synthetic chemicals"
     ],
-    "price": 649,
-    "slug": "triphala-digest-tonic",
+    "price": 199,
+    "slug": "almond-honey-lip-balm",
     "image": ""
   },
   {
     "id": "4",
-    "name": "Brahmi Focus Capsules",
-    "description": "A premium herbal supplement known for its capacity to nurture memory, focus, and clarity of thought, supporting nervous system resilience.",
+    "name": "Rakta Chandan Bathing Soap",
+    "description": "Crafted with pure red sandalwood (Rakta Chandan) extracts, this soothing bathing soap targets blemishes, tanning, and irritation while gently exfoliating the skin.",
     "benefits": [
-      "Improves memory retention and learning capacity",
-      "Boosts concentration and logical thinking",
-      "Calms the mind and reduces nervous tension",
-      "Protects brain cells from oxidative stress"
+      "Fades blemishes, acne scars, and sun tans",
+      "Provides a cooling sensation and reduces inflammation",
+      "Gently exfoliates dead skin cells for smooth texture",
+      "Suitable for all skin types, especially sensitive skin"
     ],
-    "price": 200,
-    "slug": "brahmi-focus-capsules",
+    "price": 249,
+    "slug": "rakta-chandan-bathing-soap",
     "image": ""
-  },
-  {
-    "id": "1782888799479",
-    "name": "Camphor Soap",
-    "description": "Camphor soap is a natural, multipurpose cleansing bar primarily valued for its purifying, cooling, and soothing properties.",
-    "benefits": [
-      "Soothes Irritation & Rashes",
-      "Acne & Oil Control",
-      "combat skin irritations and promote daily freshness"
-    ],
-    "price": 100,
-    "slug": "camphor-soap",
-    "image": "/uploads/product-1782891468579.jpeg"
   }
 ]

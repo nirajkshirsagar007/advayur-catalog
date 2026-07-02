@@ -10,16 +10,16 @@ export default function Home() {
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-950/10 bg-amber-50/50 mb-6 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-gold animate-pulse"></span>
             <span className="text-[11px] font-sans font-semibold uppercase tracking-widest text-emerald-950/80">
-              Introducing Our Autumn Harvest Remedies
+              Handmade Bath &amp; Beauty Rituals
             </span>
           </div>
           
           <h1 className="font-serif text-5xl md:text-7xl text-emerald-950 tracking-tight leading-tight max-w-4xl mx-auto font-semibold">
-            Align Your Body, Mind, &amp; Spirit With <span className="italic text-emerald-900">Nature</span>
+            Pure Ayurvedic Skincare &amp; <span className="italic text-emerald-900">Daily Glow</span>
           </h1>
           
           <p className="mt-6 text-lg md:text-xl text-emerald-950/70 font-sans max-w-2xl mx-auto leading-relaxed">
-            Discover premium, doctor-formulated Ayurvedic treatments designed to restore balance and ignite your internal vitality.
+            Experience luxury handmade soaps, purifying face washes, and nourishing lip care crafted to rejuvenate, protect, and heal your skin naturally.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
@@ -27,7 +27,7 @@ export default function Home() {
               href="#catalog"
               className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-sm font-semibold px-8 py-3.5 rounded-full tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg"
             >
-              Explore the Catalog
+              Explore our soaps &amp; skincare
             </a>
             <a 
               href="#about"
@@ -47,11 +47,11 @@ export default function Home() {
       <section id="catalog" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 scroll-mt-20">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="font-serif text-3xl md:text-4xl text-emerald-950 tracking-wide font-semibold">
-            Signature Formulations
+            Signature Bath &amp; Beauty Remedies
           </h2>
           <div className="h-0.5 w-16 bg-accent-gold mx-auto mt-4"></div>
           <p className="mt-4 text-emerald-950/60 font-sans">
-            Hand-crafted in micro-batches with high-potency wildcrafted botanicals. 
+            Hand-crafted in micro-batches with cold-pressed botanical oils, organic butters, and skin-purifying herbs.
           </p>
         </div>
 
@@ -132,28 +132,28 @@ export default function Home() {
       <section id="about" className="bg-emerald-950 text-amber-50 py-24 relative overflow-hidden">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <span className="font-serif text-lg italic text-accent-gold block mb-2">Our Heritage &amp; Promise</span>
-          <h2 className="font-serif text-3xl md:text-4xl tracking-wide mb-6">Ancient Wisdom for Modern Wellness</h2>
+          <h2 className="font-serif text-3xl md:text-4xl tracking-wide mb-6">Ancient Skincare Wisdom for Modern Rituals</h2>
           <p className="text-amber-50/70 font-sans max-w-3xl mx-auto leading-relaxed mb-8">
-            At Advayur, we believe that pure beauty and vibrant wellness come from maintaining harmony within. 
-            Every single batch of our remedies is crafted in strict accordance with centuries-old Ayurvedic scripts, 
-            blended to address modern environmental and physiological stressors.
+            At Advayur, we believe that glowing, healthy skin comes from feeding it pure, living nutrition. 
+            Every single batch of our handmade bathing soaps, refreshing face washes, and lip balms is created using cold-pressed oils, 
+            fresh botanicals, and traditional Ayurvedic fermentation processes designed to cleanse without stripping your skin.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-amber-50/10">
             <div>
               <p className="font-serif text-2xl text-accent-gold font-bold">100%</p>
-              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Sustainably Harvested</p>
+              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Cold-Pressed Oils</p>
             </div>
             <div>
               <p className="font-serif text-2xl text-accent-gold font-bold">Zero</p>
-              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Synthetic Additives</p>
+              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Chemical Foaming Agents</p>
             </div>
             <div>
-              <p className="font-serif text-2xl text-accent-gold font-bold">Batch</p>
-              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Tested for Purity</p>
+              <p className="font-serif text-2xl text-accent-gold font-bold">Small</p>
+              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Batch Formulated</p>
             </div>
             <div>
-              <p className="font-serif text-2xl text-accent-gold font-bold">Direct</p>
-              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Farmer Partnerships</p>
+              <p className="font-serif text-2xl text-accent-gold font-bold">Pure</p>
+              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Forest-Sourced Honey &amp; Herbs</p>
             </div>
           </div>
         </div>
