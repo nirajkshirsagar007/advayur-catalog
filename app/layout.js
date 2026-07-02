@@ -15,9 +15,9 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Advayur | Premium Ayurvedic Catalog",
-  description: "Explore Advayur's premium range of authentic Ayurvedic products crafted to revitalize, nourish, and restore wellness naturally.",
-  keywords: "Ayurveda, Organic Wellness, Advayur, Herbal Remedies, Skin Care, Wellness Tonic",
+  title: "Advayur | Premium Handmade Soaps, Face Wash & Lip Care",
+  description: "Explore Advayur's premium range of organic Ayurvedic skincare, handmade soaps, face washes, and lip balms crafted for natural beauty.",
+  keywords: "Ayurveda, Organic Skincare, Handmade Soap, Neem Face Wash, Sandalwood Soap, Natural Lip Balm",
 };
 
 export default function RootLayout({ children }) {
@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
             
             <div className="flex items-center gap-4">
               <a 
-                href="https://wa.me/917038369618" 
+                href="https://wa.me/91XXXXXXXXXX" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs font-semibold px-4 py-2 rounded-full tracking-wider uppercase transition-colors duration-200"
@@ -66,16 +66,16 @@ export default function RootLayout({ children }) {
             <div className="flex flex-col gap-4">
               <Logo className="w-10 h-10 text-accent-gold" showText={true} />
               <p className="text-sm text-amber-50/60 leading-relaxed max-w-sm">
-                Rooted in ancient wisdom, crafted for modern life. Advayur brings you pure botanical remedies to align mind, body, and spirit.
+                Rooted in ancient beauty rituals, crafted for modern life. Advayur brings you handmade organic soaps, face washes, and lip care to elevate your daily skincare.
               </p>
             </div>
             <div>
               <h4 className="font-serif text-md text-amber-50 tracking-wider mb-4">Philosophy</h4>
               <ul className="space-y-2 text-sm text-amber-50/60">
-                <li>100% Organic Ingredients</li>
-                <li>Ethically Sourced Herbs</li>
-                <li>Traditional Formulation</li>
-                <li>Cruelty-Free & Natural</li>
+                <li>100% Organic Botanical Extracts</li>
+                <li>Cold-Pressed Oils &amp; Butters</li>
+                <li>Traditional Soap Curing Methods</li>
+                <li>Cruelty-Free &amp; Zero Parabens</li>
               </ul>
             </div>
             <div>
