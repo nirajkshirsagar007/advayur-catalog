@@ -2,12 +2,18 @@
   {
     "id": "1",
     "name": "Kumkumadi Facial Oil",
-    "description": "A luxurious blend of saffron, sandalwood, and precious herbs crafted to revitalize your skin, restoring its natural luminosity and evening out skin tone.",
+    "description": "A luxurious Ayurvedic facial oil enriched with traditional herbs to nourish, brighten, and rejuvenate your skin naturally.",
+    "category": "Skin Care",
+    "features": [
+      "Ayurvedic Formula",
+      "Chemical-Free",
+      "Naturally Sourced"
+    ],
     "benefits": [
-      "Brightens complexion and adds a natural glow",
-      "Reduces hyperpigmentation and dark spots",
-      "Hydrates deeply and improves skin elasticity",
-      "Combats early signs of aging and fine lines"
+      "Brightens skin tone and restores natural radiance",
+      "Reduces spots, blemishes, and early signs of aging",
+      "Made with carefully selected natural herbs",
+      "Crafted with care and attention to purity"
     ],
     "price": 1299,
     "slug": "kumkumadi-facial-oil",
@@ -16,12 +22,18 @@
   {
     "id": "2",
     "name": "Ashwagandha Vitality Elixir",
-    "description": "An adaptogenic powerhouse designed to help your body manage stress, boost energy levels, and improve mental focus while fostering overall vitality.",
+    "description": "Support your daily vitality with the natural goodness of Ashwagandha, carefully formulated to promote energy, balance, and overall wellness.",
+    "category": "Wellness",
+    "features": [
+      "Daily Wellness Support",
+      "Traditionally Inspired",
+      "Premium Quality"
+    ],
     "benefits": [
-      "Reduces cortisol levels and manages daily stress",
-      "Enhances physical stamina and energy levels",
-      "Supports cognitive functions and mental clarity",
-      "Promotes restful sleep and deep relaxation"
+      "Helps the body manage stress and exhaustion",
+      "Promotes sustained vitality and physical stamina",
+      "Inspired by traditional Ayurvedic practices",
+      "Suitable for daily wellness routines"
     ],
     "price": 899,
     "slug": "ashwagandha-vitality-elixir",
@@ -29,43 +41,55 @@
   },
   {
     "id": "3",
-    "name": "Triphala Digest Tonic",
-    "description": "A classic Ayurvedic formulation of three potent fruits—amalaki, bibhitaki, and haritaki—to gently detoxify, cleanse, and support optimal digestion.",
-    "benefits": [
-      "Promotes regular digestion and bowel health",
-      "Cleanses the gastrointestinal tract of toxins",
-      "Acts as a powerful antioxidant blend",
-      "Supports immune system function and vitality"
+    "name": "Eladi & Coconut Milk Soap",
+    "description": "A luxury bathing bar crafted with therapeutic Eladi oils, cardamom, and fresh coconut milk to gently exfoliate, soften, and nourish skin texture.",
+    "category": "Personal Care",
+    "features": [
+      "Herbal Ingredients",
+      "Chemical-Free",
+      "Expertly Crafted"
     ],
-    "price": 649,
-    "slug": "triphala-digest-tonic",
+    "benefits": [
+      "Gently cleanses and locks in daily skin hydration",
+      "Improves skin tone and natural texture",
+      "Suitable for daily wellness routines",
+      "Premium quality ingredients"
+    ],
+    "price": 299,
+    "slug": "eladi-coconut-milk-soap",
     "image": ""
   },
   {
     "id": "4",
-    "name": "Brahmi Focus Capsules",
-    "description": "A premium herbal supplement known for its capacity to nurture memory, focus, and clarity of thought, supporting nervous system resilience.",
-    "benefits": [
-      "Improves memory retention and learning capacity",
-      "Boosts concentration and logical thinking",
-      "Calms the mind and reduces nervous tension",
-      "Protects brain cells from oxidative stress"
+    "name": "Almond & Honey Lip Balm",
+    "description": "An ultra-nourishing Ayurvedic lip butter enriched with cold-pressed sweet almond oil and organic forest honey to repair and prevent chapped lips.",
+    "category": "Personal Care",
+    "features": [
+      "Naturally Sourced",
+      "Chemical-Free",
+      "Premium Quality"
     ],
-    "price": 200,
-    "slug": "brahmi-focus-capsules",
+    "benefits": [
+      "Locks in moisture for long-lasting hydration",
+      "Softens, smooths, and repairs dry, cracked lips",
+      "Made with carefully selected natural herbs",
+      "Crafted with care and attention to purity"
+    ],
+    "price": 199,
+    "slug": "almond-honey-lip-balm",
     "image": ""
   },
   {
-    "id": "1782888799479",
+    "id": "1782994846126",
     "name": "Camphor Soap",
-    "description": "Camphor soap is a natural, multipurpose cleansing bar primarily valued for its purifying, cooling, and soothing properties.",
+    "description": "Camphor soap is an invigorating, herbal bathing bar infused with natural camphor extract. Known for its distinct aromatic scent and cooling properties, it deeply cleanses while providing relief from hot, humid weather.",
     "benefits": [
-      "Soothes Irritation & Rashes",
-      "Acne & Oil Control",
-      "combat skin irritations and promote daily freshness"
+      "Soothes & Cools.",
+      "Fights Acne & Bacteria",
+      "Controls Body Odor"
     ],
     "price": 100,
     "slug": "camphor-soap",
-    "image": "/uploads/product-1782891468579.jpeg"
+    "image": "/uploads/product-1782994739094.jpeg"
   }
 ]

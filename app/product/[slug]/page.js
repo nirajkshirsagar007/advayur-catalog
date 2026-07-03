@@ -17,17 +17,17 @@ export default async function ProductDetailPage({ params }) {
   const encodedMessage = encodeURIComponent(rawMessage);
   const whatsappUrl = `https://wa.me/917038369618?text=${encodedMessage}`;
 
-  return ( 
-    <div className="bg-amber-50 min-h-screen py-12">
+  return (
+    <div className="bg-background min-h-screen py-12 text-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Breadcrumbs */}
-        <nav className="flex items-center gap-2 text-xs font-sans font-semibold tracking-widest uppercase text-emerald-950/50 mb-10">
-          <Link href="/" className="hover:text-emerald-800 transition-colors">
+        <nav className="flex items-center gap-2 text-xs font-sans font-semibold tracking-widest uppercase text-foreground/50 mb-10">
+          <Link href="/" className="hover:text-primary-green transition-colors">
             Home
           </Link>
           <span>/</span>
-          <span className="text-emerald-950">{product.name}</span>
+          <span className="text-foreground">{product.name}</span>
         </nav>
 
         {/* Product Layout Grid */}
@@ -35,7 +35,7 @@ export default async function ProductDetailPage({ params }) {
           
           {/* Left Column: Product Visuals */}
           <div className="glass-card rounded-3xl p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-            <div className="aspect-[4/5] w-full bg-emerald-950/5 rounded-2xl relative overflow-hidden flex items-center justify-center border border-emerald-950/5">
+            <div className="aspect-[4/5] w-full bg-foreground/5 rounded-2xl relative overflow-hidden flex items-center justify-center border border-foreground/5">
               {product.image ? (
                 <img 
                   src={product.image} 
@@ -47,14 +47,14 @@ export default async function ProductDetailPage({ params }) {
                   <div className="absolute inset-0 bg-gradient-to-br from-amber-100/50 to-transparent"></div>
                   
                   {/* Premium botanical graphic element */}
-                  <svg className="w-32 h-32 text-emerald-800/20" viewBox="0 0 24 24" fill="currentColor">
+                  <svg className="w-32 h-32 text-primary-green/20" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C8.38,19.9 10.2,19.34 11.75,18.06C14.89,15.5 16,11.5 17,8M12,2A15,15 0 0,0 2,17C2,17 7,12 12,12C12,12 11,17 16,17C21,17 22,2 22,2C22,2 17,2 12,2Z" />
                   </svg>
                 </>
               )}
 
-              <span className="absolute top-4 left-4 bg-emerald-950 text-white text-[10px] font-sans font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10">
-                Premium Grade
+              <span className="absolute top-4 left-4 bg-primary-green text-white text-[10px] font-sans font-bold uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/10">
+                {product.category || "Premium Grade"}
               </span>
             </div>
           </div>
@@ -66,31 +66,45 @@ export default async function ProductDetailPage({ params }) {
                 Advayur Apothecary
               </span>
               
-              <h1 className="font-serif text-4xl md:text-5xl text-emerald-950 font-bold tracking-wide leading-tight mb-4">
+              <h1 className="font-serif text-4xl md:text-5xl text-foreground font-bold tracking-wide leading-tight mb-4">
                 {product.name}
               </h1>
 
+              {/* Features Tags */}
+              {product.features && (
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {product.features.map((feature, idx) => (
+                    <span key={idx} className="bg-primary-green/5 text-primary-green text-xs font-sans font-bold px-3 py-1 rounded border border-primary-green/10">
+                      {feature}
+                    </span>
+                  ))}
+                </div>
+              )}
+
               {/* Price Tag */}
-              <div className="inline-flex items-baseline gap-2 py-2 px-4 rounded-xl bg-emerald-950/5 border border-emerald-950/5 mb-8">
-                <span className="text-sm font-sans text-emerald-950/60 uppercase tracking-wider font-semibold">Price:</span>
-                <span className="text-2xl font-sans font-bold text-emerald-950">₹{product.price}</span>
+              <div className="inline-flex items-baseline gap-2 py-2 px-4 rounded-xl bg-foreground/5 border border-foreground/5 mb-8">
+                <span className="text-sm font-sans text-foreground/60 uppercase tracking-wider font-semibold">Price:</span>
+                <span className="text-2xl font-sans font-bold text-foreground">₹{product.price}</span>
               </div>
 
-              {/* Description */}
-              <div className="border-t border-emerald-950/10 pt-6 mb-8">
-                <h3 className="font-serif text-lg text-emerald-950 font-semibold mb-3">About the Remedy</h3>
-                <p className="font-sans text-emerald-950/80 leading-relaxed">
+              {/* Product Details Overview */}
+              <div className="border-t border-foreground/10 pt-6 mb-8">
+                <h3 className="font-serif text-lg text-foreground font-semibold mb-3">Product Overview</h3>
+                <p className="font-sans text-foreground/80 leading-relaxed mb-4">
                   {product.description}
+                </p>
+                <p className="text-xs text-foreground/50 font-sans italic">
+                  Learn about the ingredients, traditional uses, and wellness benefits of our carefully formulated Ayurvedic products.
                 </p>
               </div>
 
               {/* Benefits */}
-              <div className="border-t border-emerald-950/10 pt-6 mb-8">
-                <h3 className="font-serif text-lg text-emerald-950 font-semibold mb-4">Proven Benefits</h3>
+              <div className="border-t border-foreground/10 pt-6 mb-8">
+                <h3 className="font-serif text-lg text-foreground font-semibold mb-4">Key Benefits</h3>
                 <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {product.benefits.map((benefit, index) => (
-                    <li key={index} className="flex gap-3 text-sm text-emerald-950/90 font-sans items-start">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-emerald-800/10 flex items-center justify-center text-emerald-800 mt-0.5">
+                    <li key={index} className="flex gap-3 text-sm text-foreground/90 font-sans items-start">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary-green/10 flex items-center justify-center text-primary-green mt-0.5">
                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3">
                           <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                         </svg>
@@ -100,16 +114,32 @@ export default async function ProductDetailPage({ params }) {
                   ))}
                 </ul>
               </div>
+
+              {/* Natural Ingredients Section */}
+              <div className="border-t border-foreground/10 pt-6 mb-8">
+                <h3 className="font-serif text-lg text-foreground font-semibold mb-3">Natural Ingredients</h3>
+                <p className="text-sm text-foreground/80 font-sans leading-relaxed">
+                  Each formulation combines carefully selected herbs and botanical extracts known in Ayurveda for their traditional use and natural goodness.
+                </p>
+              </div>
+
+              {/* Our Commitment Promise */}
+              <div className="border-t border-foreground/10 pt-6 mb-8 p-5 bg-primary-green/5 rounded-2xl border border-primary-green/10">
+                <h4 className="font-serif text-base font-bold text-primary-green mb-2">Our Commitment</h4>
+                <p className="text-xs text-foreground/80 font-sans leading-relaxed">
+                  We are committed to providing high-quality Ayurvedic products inspired by traditional wisdom and crafted with care to help you embrace a healthier lifestyle naturally.
+                </p>
+              </div>
             </div>
 
             {/* WhatsApp Checkout Button */}
-            <div className="border-t border-emerald-950/10 pt-8 mt-4">
+            <div className="border-t border-foreground/10 pt-8 mt-4">
               <a 
                 href={whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ backgroundColor: '#25D366' }}
-                className="w-full flex items-center justify-center gap-3 text-white font-sans text-base font-bold uppercase tracking-wider py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:brightness-95 active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-3 text-white font-sans text-base font-bold uppercase tracking-wider py-4 rounded-xl transition-all duration-300 shadow-md hover:shadow-lg hover:brightness-95 active:scale-[0.98] cursor-pointer"
               >
                 {/* Custom WhatsApp Icon SVG */}
                 <svg className="w-6 h-6 fill-current" viewBox="0 0 24 24">
@@ -117,7 +147,7 @@ export default async function ProductDetailPage({ params }) {
                 </svg>
                 <span>Order via WhatsApp</span>
               </a>
-              <p className="text-center text-xs text-emerald-950/40 mt-3 font-sans">
+              <p className="text-center text-xs text-foreground/40 mt-3 font-sans">
                 Secure checkout. Open in WhatsApp to finalize details and shipping address.
               </p>
             </div>

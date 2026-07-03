@@ -3,55 +3,128 @@ import products from "@/data/products.json";
 
 export default function Home() {
   return (
-    <div className="bg-amber-50 min-h-screen">
+    <div className="bg-background min-h-screen">
       {/* Hero Section */}
-      <section className="relative overflow-hidden pt-20 pb-24 md:pt-28 md:pb-32 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-emerald-900/10 via-amber-50 to-amber-50 border-b border-emerald-950/5">
+      <section className="relative overflow-hidden pt-24 pb-28 md:pt-32 md:pb-36 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary-green/10 via-background to-background border-b border-foreground/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-950/10 bg-amber-50/50 mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-foreground/10 bg-background/50 mb-6 backdrop-blur-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-accent-gold animate-pulse"></span>
-            <span className="text-[11px] font-sans font-semibold uppercase tracking-widest text-emerald-950/80">
-              Introducing Our Autumn Harvest Remedies
+            <span className="text-[11px] font-sans font-bold uppercase tracking-widest text-foreground/80">
+              Rooted in Ayurveda. Crafted with Care.
             </span>
           </div>
           
-          <h1 className="font-serif text-5xl md:text-7xl text-emerald-950 tracking-tight leading-tight max-w-4xl mx-auto font-semibold">
-            Align Your Body, Mind, &amp; Spirit With <span className="italic text-emerald-900">Nature</span>
+          <h1 className="font-serif text-5xl md:text-7xl text-foreground tracking-tight leading-tight max-w-4xl mx-auto font-semibold">
+            Discover the Power of <span className="italic text-primary-green">Authentic Ayurveda</span>
           </h1>
           
-          <p className="mt-6 text-lg md:text-xl text-emerald-950/70 font-sans max-w-2xl mx-auto leading-relaxed">
-            Discover premium, doctor-formulated Ayurvedic treatments designed to restore balance and ignite your internal vitality.
+          <p className="mt-6 text-base md:text-lg text-foreground/75 font-sans max-w-3xl mx-auto leading-relaxed">
+            Explore our carefully crafted range of Ayurvedic products made with time-tested herbs, natural ingredients, and traditional formulations to support your daily health and wellness.
           </p>
 
           <div className="mt-10 flex flex-wrap justify-center gap-4">
             <a 
               href="#catalog"
-              className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-sm font-semibold px-8 py-3.5 rounded-full tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg"
+              className="bg-primary-green hover:opacity-95 text-white font-sans text-sm font-semibold px-8 py-3.5 rounded-full tracking-wider uppercase transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
             >
-              Explore the Catalog
+              Explore Products
             </a>
             <a 
               href="#about"
-              className="border border-emerald-950/20 hover:border-emerald-950/40 text-emerald-950 font-sans text-sm font-semibold px-8 py-3.5 rounded-full tracking-wider uppercase transition-all duration-300 bg-amber-50/20 hover:bg-amber-50/80"
+              className="border border-foreground/20 hover:border-foreground/40 text-foreground font-sans text-sm font-semibold px-8 py-3.5 rounded-full tracking-wider uppercase transition-all duration-300 bg-background/20 hover:bg-background/80"
             >
-              Our Heritage
+              Our Philosophy
             </a>
           </div>
         </div>
 
         {/* Dynamic backgrounds design */}
-        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-emerald-800/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-primary-green/5 rounded-full blur-3xl pointer-events-none"></div>
         <div className="absolute top-1/3 right-1/4 -translate-y-1/2 translate-x-1/2 w-[400px] h-[400px] bg-accent-gold/10 rounded-full blur-3xl pointer-events-none"></div>
       </section>
 
-      {/* Catalog Grid Section */}
-      <section id="catalog" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 scroll-mt-20">
+      {/* About Section */}
+      <section id="about" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-b border-foreground/5 scroll-mt-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+          <div>
+            <span className="font-serif text-lg italic text-accent-gold block mb-2">Our Foundation</span>
+            <h2 className="font-serif text-3xl md:text-4xl text-foreground font-bold tracking-wide mb-6">
+              About Advayur
+            </h2>
+            <p className="text-foreground/80 font-sans leading-relaxed text-base mb-6">
+              At Advayur, we believe true wellness begins with nature. Inspired by the timeless principles of Ayurveda, our products are thoughtfully developed using carefully selected herbs and natural ingredients. Every formulation is designed to support holistic well-being while maintaining the highest standards of quality, purity, and authenticity.
+            </p>
+            <div className="h-px w-24 bg-accent-gold"></div>
+          </div>
+          <div className="glass-card rounded-3xl p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)] flex flex-col gap-6">
+            <h3 className="font-serif text-xl font-bold">Our Promise</h3>
+            <p className="text-foreground/75 font-sans leading-relaxed text-sm">
+              We are committed to providing high-quality Ayurvedic products inspired by traditional wisdom and crafted with care to help you embrace a healthier lifestyle naturally.
+            </p>
+            <span className="text-xs font-bold uppercase tracking-wider text-primary-green font-sans">
+              Pure • Authentic • Safe
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Advayur Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-b border-foreground/5">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="font-serif text-3xl md:text-4xl text-emerald-950 tracking-wide font-semibold">
-            Signature Formulations
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground tracking-wide font-semibold">
+            Why Choose Advayur?
           </h2>
           <div className="h-0.5 w-16 bg-accent-gold mx-auto mt-4"></div>
-          <p className="mt-4 text-emerald-950/60 font-sans">
-            Hand-crafted in micro-batches with high-potency wildcrafted botanicals. 
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Card 1 */}
+          <div className="glass-card rounded-2xl p-6 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.01)] hover-lift">
+            <span className="text-3xl block mb-4">🌿</span>
+            <h3 className="font-serif text-lg font-bold mb-2">Natural Ingredients</h3>
+            <p className="text-foreground/70 text-sm font-sans leading-relaxed">
+              Made using carefully selected herbs and plant-based ingredients.
+            </p>
+          </div>
+
+          {/* Card 2 */}
+          <div className="glass-card rounded-2xl p-6 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.01)] hover-lift">
+            <span className="text-3xl block mb-4">🌱</span>
+            <h3 className="font-serif text-lg font-bold mb-2">Authentic Formulations</h3>
+            <p className="text-foreground/70 text-sm font-sans leading-relaxed">
+              Inspired by traditional Ayurvedic knowledge and modern quality standards.
+            </p>
+          </div>
+
+          {/* Card 3 */}
+          <div className="glass-card rounded-2xl p-6 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.01)] hover-lift">
+            <span className="text-3xl block mb-4">🛡️</span>
+            <h3 className="font-serif text-lg font-bold mb-2">Quality Assured</h3>
+            <p className="text-foreground/70 text-sm font-sans leading-relaxed">
+              Every product undergoes strict quality checks to ensure consistency and safety.
+            </p>
+          </div>
+
+          {/* Card 4 */}
+          <div className="glass-card rounded-2xl p-6 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.01)] hover-lift">
+            <span className="text-3xl block mb-4">💚</span>
+            <h3 className="font-serif text-lg font-bold mb-2">Holistic Wellness</h3>
+            <p className="text-foreground/70 text-sm font-sans leading-relaxed">
+              Supporting healthy living through natural and balanced wellness solutions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Product Section */}
+      <section id="catalog" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-b border-foreground/5 scroll-mt-20">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground tracking-wide font-semibold">
+            Our Ayurvedic Collection
+          </h2>
+          <div className="h-0.5 w-16 bg-accent-gold mx-auto mt-4"></div>
+          <p className="mt-4 text-foreground/60 font-sans">
+            Explore our premium range of Ayurvedic products crafted to support your wellness journey naturally.
           </p>
         </div>
 
@@ -64,7 +137,7 @@ export default function Home() {
             >
               <div>
                 {/* Visual Placeholders */}
-                <div className="aspect-[4/5] w-full bg-emerald-950/5 rounded-xl mb-6 relative overflow-hidden flex items-center justify-center border border-emerald-950/5">
+                <div className="aspect-[4/5] w-full bg-foreground/5 rounded-xl mb-6 relative overflow-hidden flex items-center justify-center border border-foreground/5">
                   {product.image ? (
                     <img 
                       src={product.image} 
@@ -74,35 +147,44 @@ export default function Home() {
                   ) : (
                     <>
                       <div className="absolute inset-0 bg-gradient-to-br from-amber-100/50 to-transparent"></div>
-                      
-                      {/* Subtle Ayurvedic leaf outline representation using pure CSS/SVG */}
-                      <svg className="w-16 h-16 text-emerald-800/20" viewBox="0 0 24 24" fill="currentColor">
+                      <svg className="w-16 h-16 text-primary-green/20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C8.38,19.9 10.2,19.34 11.75,18.06C14.89,15.5 16,11.5 17,8M12,2A15,15 0 0,0 2,17C2,17 7,12 12,12C12,12 11,17 16,17C21,17 22,2 22,2C22,2 17,2 12,2Z" />
                       </svg>
                     </>
                   )}
                   
                   {/* Category Pill */}
-                  <span className="absolute bottom-3 left-3 bg-amber-50/90 text-emerald-950 text-[10px] font-sans font-bold uppercase tracking-widest px-2.5 py-1 rounded-md border border-emerald-950/5">
-                    100% Organic
+                  <span className="absolute bottom-3 left-3 bg-background/90 text-foreground text-[10px] font-sans font-bold uppercase tracking-widest px-2.5 py-1 rounded-md border border-foreground/5">
+                    {product.category || "Ayurveda"}
                   </span>
                 </div>
 
-                <h3 className="font-serif text-xl text-emerald-950 font-medium group-hover:text-emerald-800 transition-colors">
+                <h3 className="font-serif text-xl text-foreground font-medium group-hover:text-primary-green transition-colors">
                   {product.name}
                 </h3>
                 
-                <p className="mt-2 text-emerald-950/65 font-sans text-sm line-clamp-2 leading-relaxed">
+                <p className="mt-2 text-foreground/65 font-sans text-sm line-clamp-2 leading-relaxed">
                   {product.description}
                 </p>
 
+                {/* Features Tags */}
+                {product.features && (
+                  <div className="mt-3 flex flex-wrap gap-1">
+                    {product.features.map((feature, idx) => (
+                      <span key={idx} className="bg-primary-green/5 text-primary-green text-[10px] font-sans font-semibold px-2 py-0.5 rounded border border-primary-green/10">
+                        {feature}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
                 {/* Benefits Preview */}
-                <div className="mt-4 pt-4 border-t border-emerald-900/5">
-                  <p className="text-[11px] font-sans font-bold uppercase tracking-wider text-emerald-900/60 mb-2">Key Benefits</p>
+                <div className="mt-4 pt-4 border-t border-foreground/5">
+                  <p className="text-[11px] font-sans font-bold uppercase tracking-wider text-primary-green/60 mb-2">Key Benefits</p>
                   <ul className="space-y-1">
                     {product.benefits.slice(0, 2).map((benefit, index) => (
-                      <li key={index} className="text-xs text-emerald-950/80 font-sans flex items-start gap-1.5">
-                        <span className="text-emerald-800 mt-0.5">•</span>
+                      <li key={index} className="text-xs text-foreground/85 font-sans flex items-start gap-1.5">
+                        <span className="text-secondary-sage mt-0.5">•</span>
                         <span className="line-clamp-1">{benefit}</span>
                       </li>
                     ))}
@@ -110,15 +192,15 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-emerald-900/5 flex items-center justify-between">
+              <div className="mt-6 pt-4 border-t border-foreground/5 flex items-center justify-between">
                 <div>
-                  <span className="text-xs font-sans text-emerald-950/50 uppercase tracking-widest block">Price</span>
-                  <span className="font-sans text-lg font-bold text-emerald-950">₹{product.price}</span>
+                  <span className="text-xs font-sans text-foreground/50 uppercase tracking-widest block">Price</span>
+                  <span className="font-sans text-lg font-bold text-foreground">₹{product.price}</span>
                 </div>
                 
                 <Link 
                   href={`/product/${product.slug}`}
-                  className="bg-emerald-800 hover:bg-emerald-900 text-white font-sans text-xs font-semibold px-4 py-2.5 rounded-full tracking-wider uppercase transition-colors"
+                  className="bg-primary-green hover:opacity-95 text-white font-sans text-xs font-semibold px-4 py-2.5 rounded-full tracking-wider uppercase transition-colors"
                 >
                   View Details
                 </Link>
@@ -128,36 +210,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Brand Heritage Section */}
-      <section id="about" className="bg-emerald-950 text-amber-50 py-24 relative overflow-hidden">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <span className="font-serif text-lg italic text-accent-gold block mb-2">Our Heritage &amp; Promise</span>
-          <h2 className="font-serif text-3xl md:text-4xl tracking-wide mb-6">Ancient Wisdom for Modern Wellness</h2>
-          <p className="text-amber-50/70 font-sans max-w-3xl mx-auto leading-relaxed mb-8">
-            At Advayur, we believe that pure beauty and vibrant wellness come from maintaining harmony within. 
-            Every single batch of our remedies is crafted in strict accordance with centuries-old Ayurvedic scripts, 
-            blended to address modern environmental and physiological stressors.
+      {/* Testimonials Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-b border-foreground/5">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <span className="font-serif text-lg italic text-accent-gold block mb-2">Customer Stories</span>
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground tracking-wide font-semibold">
+            What Our Customers Say
+          </h2>
+          <div className="h-0.5 w-16 bg-accent-gold mx-auto mt-4"></div>
+        </div>
+
+        <div className="max-w-3xl mx-auto text-center glass-card p-10 rounded-3xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.01)] relative">
+          <span className="text-6xl text-primary-green/10 absolute top-4 left-6 font-serif">“</span>
+          <p className="font-serif text-xl italic text-foreground/85 leading-relaxed relative z-10">
+            "The quality and authenticity of Advayur products have made them a valuable part of my daily wellness routine."
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-amber-50/10">
-            <div>
-              <p className="font-serif text-2xl text-accent-gold font-bold">100%</p>
-              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Sustainably Harvested</p>
-            </div>
-            <div>
-              <p className="font-serif text-2xl text-accent-gold font-bold">Zero</p>
-              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Synthetic Additives</p>
-            </div>
-            <div>
-              <p className="font-serif text-2xl text-accent-gold font-bold">Batch</p>
-              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Tested for Purity</p>
-            </div>
-            <div>
-              <p className="font-serif text-2xl text-accent-gold font-bold">Direct</p>
-              <p className="text-xs font-sans uppercase tracking-widest text-amber-50/50 mt-1">Farmer Partnerships</p>
-            </div>
+          <div className="h-px w-12 bg-accent-gold mx-auto my-6"></div>
+          <span className="text-xs font-bold uppercase tracking-widest font-sans text-foreground/60">
+            Verified Customer
+          </span>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24 border-b border-foreground/5">
+        <div className="text-center mb-16">
+          <h2 className="font-serif text-3xl md:text-4xl text-foreground tracking-wide font-semibold">
+            Frequently Asked Questions
+          </h2>
+          <div className="h-0.5 w-16 bg-accent-gold mx-auto mt-4"></div>
+        </div>
+
+        <div className="space-y-6">
+          <div className="glass-card p-6 rounded-2xl border border-white/60">
+            <h3 className="font-serif text-lg font-bold text-foreground mb-2">Are your products made using natural ingredients?</h3>
+            <p className="text-sm text-foreground/75 font-sans leading-relaxed">
+              Our formulations are developed using carefully selected herbs and natural ingredients inspired by Ayurvedic traditions.
+            </p>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl border border-white/60">
+            <h3 className="font-serif text-lg font-bold text-foreground mb-2">How should I use the products?</h3>
+            <p className="text-sm text-foreground/75 font-sans leading-relaxed">
+              Each product includes recommended usage instructions on its packaging or product page.
+            </p>
+          </div>
+
+          <div className="glass-card p-6 rounded-2xl border border-white/60">
+            <h3 className="font-serif text-lg font-bold text-foreground mb-2">Are the products suitable for daily use?</h3>
+            <p className="text-sm text-foreground/75 font-sans leading-relaxed">
+              Most products are designed for regular use as directed. Always read the usage instructions before use.
+            </p>
           </div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-900/20 rounded-full blur-3xl pointer-events-none"></div>
+      </section>
+
+      {/* Contact Section */}
+      <section id="contact-support" className="bg-primary-green text-background py-24 relative overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <span className="font-serif text-lg italic text-accent-gold block mb-2">Reach Out</span>
+          <h2 className="font-serif text-3xl md:text-4xl tracking-wide mb-6">We're Here to Help</h2>
+          <p className="text-background/80 font-sans max-w-2xl mx-auto leading-relaxed mb-8">
+            Have questions about our products or need assistance choosing the right Ayurvedic solution? Our team is happy to help.
+          </p>
+          <a 
+            href="https://wa.me/917038369618?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-accent-gold text-white font-sans text-sm font-bold uppercase tracking-wider py-4 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
+          >
+            Chat with our experts
+          </a>
+        </div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
       </section>
     </div>
   );
