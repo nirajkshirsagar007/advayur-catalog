@@ -1,4 +1,5 @@
 import { Playfair_Display, Outfit } from "next/font/google";
+import Header from "@/components/Header";
 import Logo from "@/components/Logo";
 import "./globals.css";
 
@@ -15,9 +16,11 @@ const outfit = Outfit({
 });
 
 export const metadata = {
-  title: "Advayur | Premium Handmade Soaps, Face Wash & Lip Care",
-  description: "Explore Advayur's premium range of organic Ayurvedic skincare, handmade soaps, face washes, and lip balms crafted for natural beauty.",
-  keywords: "Ayurveda, Organic Skincare, Handmade Soap, Neem Face Wash, Sandalwood Soap, Natural Lip Balm",
+  title: "Advayur | Natural Ayurvedic Wellness",
+  description:
+    "Explore Advayur's collection of Ayurvedic wellness and personal care products crafted with natural ingredients and inspired by traditional Ayurvedic wisdom. Discover quality, purity, and holistic care for everyday living.",
+  keywords:
+    "Advayur, Ayurveda, Ayurvedic wellness, Natural products, Herbal products, Personal care, Herbal skincare, Holistic wellness, Natural ingredients, Traditional Ayurveda",
 };
 
 export default function RootLayout({ children }) {
@@ -28,32 +31,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {/* Navigation Bar */}
-        <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-foreground/10">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <a href="/" className="group flex items-center">
-                <Logo className="w-10 h-10 transition-transform duration-300 group-hover:scale-105" showText={true} />
-              </a>
-            </div>
-            
-            <nav className="hidden md:flex items-center gap-8 font-sans text-sm font-medium text-foreground/80">
-              <a href="/" className="hover:text-primary-green transition-colors">Home</a>
-              <a href="/#about" className="hover:text-primary-green transition-colors">Our Philosophy</a>
-              <a href="/#contact" className="hover:text-primary-green transition-colors">Support</a>
-            </nav>
-            
-            <div className="flex items-center gap-4">
-              <a 
-                href="https://wa.me/917038369618" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="bg-primary-green hover:opacity-95 text-white font-sans text-xs font-semibold px-4 py-2 rounded-full tracking-wider uppercase transition-all duration-200"
-              >
-                Inquire
-              </a>
-            </div>
-          </div>
-        </header>
+        <Header />
 
         {/* Main Content */}
         <main className="flex-grow">

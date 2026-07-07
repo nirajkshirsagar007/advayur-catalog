@@ -1,17 +1,34 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import products from "@/data/products.json";
+import clientPromise from "@/lib/mongodb";
+
+async function getProduct(slug) {
+  try {
+    const client = await clientPromise;
+    const db = client.db();
+    const product = await db.collection('products').findOne({ slug });
+    if (product) {
+      const { _id, ...rest } = product;
+      return rest;
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+}
 
 export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
-  const product = products.find((p) => p.slug === slug);
+  const product = await getProduct(slug);
 
   if (!product) {
     notFound();
   }
 
   // Pre-populated message text
-  const rawMessage = `Hi Advayur! I am visiting your website and I would like to order ${product.name} for ₹${product.price}. Please let me know how to proceed with payment and shipping!`;
+  const rawMessage = `Hi Advayur! 
+  I am visiting your website and I would like to order ${product.name} for ₹${product.price}. 
+  Please let me know how to proceed with payment and shipping!`;
   
   // URL encode the message cleanly
   const encodedMessage = encodeURIComponent(rawMessage);
