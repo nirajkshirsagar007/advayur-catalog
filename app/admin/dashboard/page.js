@@ -16,6 +16,7 @@ export default function AdminDashboardPage() {
     price: 0,
     slug: "",
     image: "",
+    category: "Soap", // Default category
   });
   const [showAddForm, setShowAddForm] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -133,8 +134,9 @@ export default function AdminDashboardPage() {
 
   const handleSaveEdit = async (e) => {
     e.preventDefault();
+    // Ensure strict equality isn't an issue by comparing stringified IDs
     const updated = products.map((p) =>
-      p.id === editingProduct.id ? editingProduct : p
+      String(p.id) === String(editingProduct.id) ? editingProduct : p
     );
     const success = await saveProductsList(updated);
     if (success) {
@@ -156,6 +158,7 @@ export default function AdminDashboardPage() {
       price: Number(newProduct.price),
       benefits: newProduct.benefits.filter(b => b.trim() !== ""),
       image: newProduct.image.trim() || "",
+      category: newProduct.category || "Soap",
     };
 
     const updated = [...products, productToAdd];
@@ -170,6 +173,7 @@ export default function AdminDashboardPage() {
         price: 0,
         slug: "",
         image: "",
+        category: "Soap",
       });
     }
   };
@@ -245,8 +249,17 @@ export default function AdminDashboardPage() {
         {/* Edit Modal / Panel */}
         {editingProduct && (
           <div className="fixed inset-0 z-50 bg-emerald-950/40 backdrop-blur-sm flex items-center justify-center p-4">
-            <div className="bg-amber-50 rounded-3xl p-8 max-w-2xl w-full border border-emerald-950/10 shadow-2xl max-h-[90vh] overflow-y-auto">
-              <h2 className="font-serif text-2xl font-bold mb-6">Edit Product: {editingProduct.name}</h2>
+            <div className="bg-amber-50 rounded-3xl p-8 max-w-2xl w-full border border-emerald-950/10 shadow-2xl max-h-[90vh] overflow-y-auto relative">
+              <button 
+                onClick={() => setEditingProduct(null)}
+                className="absolute top-6 right-6 text-emerald-950/40 hover:text-red-600 transition-colors cursor-pointer"
+                aria-label="Close edit window"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <h2 className="font-serif text-2xl font-bold mb-6 pr-8">Edit Product: {editingProduct.name}</h2>
               <form onSubmit={handleSaveEdit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
@@ -303,6 +316,21 @@ export default function AdminDashboardPage() {
                       </label>
                     </div>
                   </div>
+                </div>
+
+                {/* Edit Category Dropdown */}
+                <div>
+                  <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Display Category Section</label>
+                  <select
+                    className="w-full px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white text-sm font-sans"
+                    value={editingProduct.category || "Soap"}
+                    onChange={(e) => setEditingProduct({ ...editingProduct, category: e.target.value })}
+                  >
+                    <option value="Soap">Soap</option>
+                    <option value="Face Wash">Face Wash</option>
+                    <option value="Lip Care">Lip Care</option>
+                    <option value="Candles">Scented Candles</option>
+                  </select>
                 </div>
 
                 <div>
@@ -406,25 +434,42 @@ export default function AdminDashboardPage() {
                 </div>
               </div>
 
-              <div>
-                <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Product Image URL / Upload (optional)</label>
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="e.g. /uploads/my-oil.jpg or https://..."
-                    className="flex-grow px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white/50 text-sm"
-                    value={newProduct.image}
-                    onChange={(e) => setNewProduct({ ...newProduct, image: e.target.value })}
-                  />
-                  <label className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[10px] py-2.5 px-4 rounded-xl flex items-center justify-center cursor-pointer select-none uppercase tracking-wider flex-shrink-0">
-                    {uploading ? "..." : "Upload File"}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Product Image URL / Upload (optional)</label>
+                  <div className="flex gap-2">
                     <input
-                      type="file"
-                      accept="image/*"
-                      className="hidden"
-                      onChange={(e) => handleFileUpload(e, false)}
+                      type="text"
+                      placeholder="e.g. /uploads/my-oil.jpg"
+                      className="flex-grow px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white/50 text-sm"
+                      value={newProduct.image}
+                      onChange={(e) => setNewProduct({ ...newProduct, image: e.target.value })}
                     />
-                  </label>
+                    <label className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-[10px] py-2.5 px-4 rounded-xl flex items-center justify-center cursor-pointer select-none uppercase tracking-wider flex-shrink-0">
+                      {uploading ? "..." : "Upload"}
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        onChange={(e) => handleFileUpload(e, false)}
+                      />
+                    </label>
+                  </div>
+                </div>
+
+                {/* Add Category Dropdown */}
+                <div>
+                  <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Display Category Section</label>
+                  <select
+                    className="w-full px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white/50 text-sm font-sans"
+                    value={newProduct.category}
+                    onChange={(e) => setNewProduct({ ...newProduct, category: e.target.value })}
+                  >
+                    <option value="Soap">Soap</option>
+                    <option value="Face Wash">Face Wash</option>
+                    <option value="Lip Care">Lip Care</option>
+                    <option value="Candles">Scented Candles</option>
+                  </select>
                 </div>
               </div>
 
@@ -482,7 +527,7 @@ export default function AdminDashboardPage() {
                 <tr className="border-b border-emerald-950/10 text-xs font-bold uppercase tracking-widest text-emerald-950/60">
                   <th className="py-4 px-4">Product details</th>
                   <th className="py-4 px-4 text-right">Price</th>
-                  <th className="py-4 px-4">Slug</th>
+                  <th className="py-4 px-4">Category</th>
                   <th className="py-4 px-4 text-center">Actions</th>
                 </tr>
               </thead>
@@ -509,8 +554,8 @@ export default function AdminDashboardPage() {
                     <td className="py-4 px-4 text-right font-bold text-emerald-950 font-mono">
                       ₹{product.price}
                     </td>
-                    <td className="py-4 px-4 text-xs font-semibold text-emerald-900/60 font-mono">
-                      {product.slug}
+                    <td className="py-4 px-4 text-xs font-bold text-primary-green/80 uppercase tracking-wider font-sans">
+                      {product.category || "Soap"}
                     </td>
                     <td className="py-4 px-4">
                       <div className="flex justify-center items-center gap-3">

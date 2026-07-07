@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import fs from "fs/promises";
-import path from "path";
+import cloudinary from "@/lib/cloudinary";
 
-// Helper to check if user is admin
 async function checkAuth() {
   const cookieStore = await cookies();
   const session = cookieStore.get("admin_session");
@@ -23,29 +21,21 @@ export async function POST(request) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
 
-    // Read file data
+    // Convert file to base64 for Cloudinary upload via SDK in serverless
     const bytes = await file.arrayBuffer();
     const buffer = Buffer.from(bytes);
+    const base64Image = `data:${file.type};base64,${buffer.toString("base64")}`;
 
-    // Create filename
-    const originalName = file.name || "image.jpg";
-    const ext = path.extname(originalName) || ".jpg";
-    const filename = `product-${Date.now()}${ext}`;
+    // Upload directly to Cloudinary
+    const uploadResponse = await cloudinary.uploader.upload(base64Image, {
+      folder: "advayur-catalog",
+      resource_type: "image",
+    });
 
-    // Target upload folder in public
-    const uploadDir = path.join(process.cwd(), "public", "uploads");
-    
-    // Ensure directory exists
-    await fs.mkdir(uploadDir, { recursive: true });
-
-    // Write file to uploads directory
-    const filePath = path.join(uploadDir, filename);
-    await fs.writeFile(filePath, buffer);
-
-    // Return the relative URL path to access from public/uploads
+    // Return the secure Cloudinary URL
     return NextResponse.json({ 
       success: true, 
-      url: `/uploads/${filename}` 
+      url: uploadResponse.secure_url 
     });
   } catch (error) {
     return NextResponse.json({ 

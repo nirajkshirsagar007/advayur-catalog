@@ -5,11 +5,11 @@ html {
 }
 
 :root {
-  --background: #fdfbf7;      /* bg-amber-50 equivalent */
-  --foreground: #022c22;      /* text-emerald-950 equivalent */
-  --primary-green: #065f46;   /* bg-emerald-800 equivalent */
-  --primary-green-dark: #044e39;
-  --accent-gold: #b38b4d;
+  --background: #efece6;        /* bg-amber-50 equivalent (Warm cream) */
+  --foreground: #022c22;        /* text-emerald-950 equivalent (Deep forest green) */
+  --primary-green: #064936;     /* bg-emerald-800 equivalent (Leaf green) */
+  --secondary-sage: #a3b18a;    /* Muted Sage green */
+  --accent-gold: #b38b4d;       /* Warm Gold */
   --whatsapp-color: #25D366;
   --whatsapp-color-dark: #128C7E;
 }
@@ -18,6 +18,7 @@ html {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary-green: var(--primary-green);
+  --color-secondary-sage: var(--secondary-sage);
   --color-accent-gold: var(--accent-gold);
   --color-whatsapp: var(--whatsapp-color);
   --font-sans: var(--font-sans);

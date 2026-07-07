@@ -1,22 +1,20 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import fs from "fs/promises";
-import path from "path";
+import clientPromise from "@/lib/mongodb";
 import crypto from "crypto";
 
-const adminFilePath = path.join(process.cwd(), "data", "admin.json");
-
-// Helper to hash password using native Node.js crypto
 function hashPassword(password) {
   return crypto.createHash("sha256").update(password).digest("hex");
 }
 
 async function getAdminData() {
   try {
-    const data = await fs.readFile(adminFilePath, "utf8");
-    return JSON.parse(data);
+    const client = await clientPromise;
+    const db = client.db();
+    const doc = await db.collection("settings").findOne({ _id: "admin" });
+    return doc;
   } catch (error) {
-    return null; // File doesn't exist or is invalid
+    return null;
   }
 }
 
@@ -35,10 +33,14 @@ export async function POST(request) {
       }
 
       const hashedPassword = hashPassword(password);
-      await fs.writeFile(
-        adminFilePath,
-        JSON.stringify({ passwordHash: hashedPassword }, null, 2),
-        "utf8"
+      const client = await clientPromise;
+      const db = client.db();
+      
+      // Upsert the admin settings document
+      await db.collection("settings").updateOne(
+        { _id: "admin" },
+        { $set: { passwordHash: hashedPassword } },
+        { upsert: true }
       );
 
       // Log in automatically after setup

@@ -1,41 +1,59 @@
 [
   {
     "id": "1",
-    "name": "Eladi & Coconut Milk Soap",
-    "description": "A luxury bathing bar crafted with therapeutic Eladi oils, cardamom, and fresh coconut milk to deeply nourish, soften, and improve skin texture, leaving it with a healthy glow.",
+    "name": "Kumkumadi Facial Oil",
+    "description": "A luxurious Ayurvedic facial oil enriched with traditional herbs to nourish, brighten, and rejuvenate your skin naturally.",
+    "category": "Face Wash",
+    "features": [
+      "Ayurvedic Formula",
+      "Chemical-Free",
+      "Naturally Sourced"
+    ],
     "benefits": [
-      "Deeply hydrates and prevents dry, flaky skin",
-      "Improves skin tone and natural complexion",
-      "Calms environmental skin irritation and redness",
-      "Infuses skin with a delicate, calming botanical aroma"
+      "Brightens skin tone and restores natural radiance",
+      "Reduces spots, blemishes, and early signs of aging",
+      "Made with carefully selected natural herbs",
+      "Crafted with care and attention to purity"
+    ],
+    "price": 1299,
+    "slug": "kumkumadi-facial-oil",
+    "image": ""
+  },
+  {
+    "id": "2",
+    "name": "Eladi & Coconut Milk Soap",
+    "description": "A luxury bathing bar crafted with therapeutic Eladi oils, cardamom, and fresh coconut milk to gently exfoliate, soften, and nourish skin texture.",
+    "category": "Soap",
+    "features": [
+      "Herbal Ingredients",
+      "Chemical-Free",
+      "Expertly Crafted"
+    ],
+    "benefits": [
+      "Gently cleanses and locks in daily skin hydration",
+      "Improves skin tone and natural texture",
+      "Suitable for daily wellness routines",
+      "Premium quality ingredients"
     ],
     "price": 299,
     "slug": "eladi-coconut-milk-soap",
     "image": ""
   },
   {
-    "id": "2",
-    "name": "Kesar Neem Face Wash",
-    "description": "A gentle, soap-free facial cleanser combining the purifying qualities of organic neem with the brightening benefits of Kashmiri saffron (Kesar) for acne-free, glowing skin.",
-    "benefits": [
-      "Deeply cleanses pores and controls excess oil",
-      "Combats acne-causing bacteria and prevents breakouts",
-      "Brightens dark spots and skin pigmentation",
-      "Maintains natural skin moisture barrier"
-    ],
-    "price": 349,
-    "slug": "kesar-neem-face-wash",
-    "image": ""
-  },
-  {
     "id": "3",
     "name": "Almond & Honey Lip Balm",
-    "description": "An ultra-nourishing Ayurvedic lip butter enriched with cold-pressed sweet almond oil, organic forest honey, and natural beeswax to repair and prevent chapped lips.",
+    "description": "An ultra-nourishing Ayurvedic lip butter enriched with cold-pressed sweet almond oil and organic forest honey to repair and prevent chapped lips.",
+    "category": "Lip Care",
+    "features": [
+      "Naturally Sourced",
+      "Chemical-Free",
+      "Premium Quality"
+    ],
     "benefits": [
       "Locks in moisture for long-lasting hydration",
       "Softens, smooths, and repairs dry, cracked lips",
-      "Protects lips from cold winds and sun damage",
-      "100% natural formula without synthetic chemicals"
+      "Made with carefully selected natural herbs",
+      "Crafted with care and attention to purity"
     ],
     "price": 199,
     "slug": "almond-honey-lip-balm",
@@ -43,16 +61,132 @@
   },
   {
     "id": "4",
-    "name": "Rakta Chandan Bathing Soap",
-    "description": "Crafted with pure red sandalwood (Rakta Chandan) extracts, this soothing bathing soap targets blemishes, tanning, and irritation while gently exfoliating the skin.",
+    "name": "Kesar Neem Face Wash",
+    "description": "A gentle, soap-free facial cleanser combining the purifying qualities of organic neem with the brightening benefits of Kashmiri saffron (Kesar) for clear skin.",
+    "category": "Face Wash",
+    "features": [
+      "Ayurvedic Formula",
+      "Chemical-Free",
+      "Naturally Sourced"
+    ],
     "benefits": [
-      "Fades blemishes, acne scars, and sun tans",
+      "Deeply cleanses pores and controls excess oil",
+      "Combats acne-causing bacteria and prevents breakouts",
+      "Made with carefully selected natural herbs",
+      "Inspired by traditional Ayurvedic practices"
+    ],
+    "price": 349,
+    "slug": "kesar-neem-face-wash",
+    "image": ""
+  },
+  {
+    "id": "5",
+    "name": "Rakta Chandan Bathing Soap",
+    "description": "Crafted with pure red sandalwood (Rakta Chandan) extracts, this soothing bathing soap targets blemishes, tanning, and daily impurities.",
+    "category": "Soap",
+    "features": [
+      "Herbal Ingredients",
+      "Traditionally Inspired",
+      "Premium Quality"
+    ],
+    "benefits": [
+      "Fades blemishes, blemishes, and sun tans",
       "Provides a cooling sensation and reduces inflammation",
       "Gently exfoliates dead skin cells for smooth texture",
-      "Suitable for all skin types, especially sensitive skin"
+      "Crafted with care and attention to purity"
     ],
     "price": 249,
     "slug": "rakta-chandan-bathing-soap",
     "image": ""
+  },
+  {
+    "id": "1783078895786",
+    "name": "Beetroot Lip Balm",
+    "description": "A nourishing Ayurvedic lip balm enriched with beetroot and natural botanical ingredients to moisturize, soften, and protect your lips. Its gentle formula helps keep lips smooth, hydrated, and naturally healthy for everyday use.",
+    "benefits": [
+      "Deeply moisturizes and nourishes dry lips",
+      "Helps maintain soft, smooth, and supple lips",
+      "Provides long-lasting hydration",
+      "Crafted with carefully selected natural ingredients"
+    ],
+    "price": 100,
+    "slug": "beetroot-lip-balm",
+    "image": "/uploads/product-1783078779437.png",
+    "category": "Lip Care"
+  },
+  {
+    "id": "1783079018254",
+    "name": "Ubtan Glow Foaming Powder Facewash",
+    "description": "A unique Ayurvedic foaming powder facewash formulated with traditional herbal ingredients to gently cleanse the skin, remove impurities, and leave your face feeling fresh, clean, and naturally radiant.",
+    "benefits": [
+      "Gently cleanses dirt, excess oil, and impurities",
+      "Leaves skin feeling soft and smooth",
+      "Helps refresh and brighten the appearance of the skin",
+      "Suitable for everyday cleansing"
+    ],
+    "price": 100,
+    "slug": "ubtan-glow-foaming-powder-facewash",
+    "image": "/uploads/product-1783078943753.png",
+    "category": "Face Wash"
+  },
+  {
+    "id": "1783079145481",
+    "name": "Camphor Soap",
+    "description": "An Ayurvedic bathing soap enriched with camphor and natural botanical ingredients to gently cleanse the skin while providing a refreshing bathing experience. Ideal for maintaining clean, fresh, and healthy-looking skin.",
+    "benefits": [
+      "Cleanses the skin effectively",
+      "Leaves the skin feeling fresh and revitalized",
+      "Helps remove excess oil and impurities",
+      "Gentle for everyday bathing"
+    ],
+    "price": 100,
+    "slug": "camphor-soap",
+    "image": "/uploads/product-1783079072721.png",
+    "category": "Soap"
+  },
+  {
+    "id": "1783079247683",
+    "name": "Charcoal Soap",
+    "description": "A natural charcoal soap crafted with Ayurvedic ingredients to deeply cleanse the skin by removing dirt, excess oil, and daily impurities while leaving your skin feeling refreshed and clean.",
+    "benefits": [
+      "Deeply cleanses the skin",
+      "Helps remove dirt and excess oil",
+      "Leaves skin feeling fresh and smooth",
+      "Suitable for daily use"
+    ],
+    "price": 100,
+    "slug": "charcoal-soap",
+    "image": "/uploads/product-1783079177425.png",
+    "category": "Soap"
+  },
+  {
+    "id": "1783079327874",
+    "name": "Palash Soap",
+    "description": "A premium Ayurvedic herbal soap enriched with Palash and carefully selected botanical ingredients to gently cleanse, nourish, and refresh your skin while supporting a naturally healthy appearance.",
+    "benefits": [
+      "Helps maintain soft and healthy-looking skin",
+      "Gently cleanses and refreshes the skin",
+      "Enriched with traditional herbal ingredients",
+      "Suitable for everyday bathing"
+    ],
+    "price": 100,
+    "slug": "palash-soap",
+    "image": "/uploads/product-1783079271060.png",
+    "category": "Soap"
+  },
+  {
+    "id": "1783079429331",
+    "name": "Haldi Chandan Soap",
+    "description": "An Ayurvedic herbal soap enriched with Haldi (Turmeric) and Chandan (Sandalwood) to gently cleanse and refresh the skin while promoting a naturally radiant and healthy-looking complexion.",
+    "benefits": [
+      "Helps maintain a naturally healthy glow",
+      "Gently cleanses and refreshes the skin",
+      "Leaves the skin soft and smooth",
+      "Made with carefully selected Ayurvedic herbs"
+    ],
+    "price": 100,
+    "slug": "haldi-chandan-soap",
+    "image": "/uploads/product-1783079370358.png",
+    "category": "Soap"
   }
 ]
