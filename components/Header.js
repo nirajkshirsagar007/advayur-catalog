@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Logo from "@/components/Logo";
 
-export default function Header() {
+export default function Header({ whatsappNumber = "917038369618" }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -28,7 +28,7 @@ export default function Header() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-4">
           <a 
-            href="https://wa.me/917038369618?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products." 
+            href={`https://wa.me/${whatsappNumber}?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products.`}
             target="_blank" 
             rel="noopener noreferrer" 
             className="bg-primary-green hover:opacity-95 text-white text-xs font-semibold px-4 py-2 rounded-full tracking-wider uppercase transition-all duration-200"
@@ -91,7 +91,7 @@ export default function Header() {
             </a>
             
             <a 
-              href="https://wa.me/917038369618?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products." 
+              href={`https://wa.me/${whatsappNumber}?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products.`}
               target="_blank" 
               rel="noopener noreferrer" 
               onClick={() => setIsOpen(false)}

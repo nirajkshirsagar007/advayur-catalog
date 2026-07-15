@@ -1,9 +1,22 @@
+import { useState, useEffect } from "react";
+
 export default function QuickActions() {
+  const [whatsappNumber, setWhatsappNumber] = useState("917038369618");
+
+  useEffect(() => {
+    fetch("/api/settings")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.whatsappNumber) {
+          setWhatsappNumber(data.whatsappNumber);
+        }
+      })
+      .catch((err) => console.error("Failed to fetch settings", err));
+  }, []);
+
   const handleWhatsApp = () => {
-    // Replace with your actual WhatsApp number
-    const phoneNumber = "7038369618";
     const message = encodeURIComponent("Hello, I need help regarding your products.");
-    window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
   };
 
   return (

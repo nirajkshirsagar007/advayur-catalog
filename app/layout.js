@@ -2,6 +2,7 @@ import { Playfair_Display, Outfit } from "next/font/google";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
 import ChatWindow from "@/components/chatbot/ChatWindow";
+import { getGlobalSettings } from "@/lib/settings";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -24,7 +25,10 @@ export const metadata = {
     "Advayur, Ayurveda, Ayurvedic wellness, Natural products, Herbal products, Personal care, Herbal skincare, Holistic wellness, Natural ingredients, Traditional Ayurveda",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const settings = await getGlobalSettings();
+  const whatsappNumber = settings.whatsappNumber;
+
   return (
     <html
       lang="en"
@@ -32,7 +36,7 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col bg-background text-foreground">
         {/* Navigation Bar */}
-        <Header />
+        <Header whatsappNumber={whatsappNumber} />
 
         {/* Main Content */}
         <main className="flex-grow">
@@ -61,7 +65,7 @@ export default function RootLayout({ children }) {
               <h4 className="font-serif text-md text-background tracking-wider mb-4">Contact Support</h4>
               <p className="text-sm text-background/70 mb-2">Have questions about our remedies?</p>
               <a 
-                href="https://wa.me/917038369618?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products."
+                href={`https://wa.me/${whatsappNumber}?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-accent-gold hover:underline text-sm font-medium block mb-4"
@@ -82,7 +86,7 @@ export default function RootLayout({ children }) {
             &copy; {new Date().getFullYear()} Advayur Wellness. All rights reserved.
           </div>
         </footer>
-        <ChatWindow />
+        <ChatWindow whatsappNumber={whatsappNumber} />
       </body>
     </html>
   );

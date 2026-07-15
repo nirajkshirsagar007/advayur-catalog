@@ -19,6 +19,8 @@ export default function AdminDashboardPage() {
     category: "Soap", // Default category
   });
   const [showAddForm, setShowAddForm] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [whatsappNumber, setWhatsappNumber] = useState("");
   const [loading, setLoading] = useState(true);
   const [actionLoading, setActionLoading] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -36,6 +38,7 @@ export default function AdminDashboardPage() {
       if (res.ok && data.authenticated) {
         setAuthenticated(true);
         fetchProducts();
+        fetchSettings();
       } else {
         setAuthenticated(false);
         router.push("/admin/login");
@@ -59,6 +62,39 @@ export default function AdminDashboardPage() {
       showFeedback("Failed to load products", true);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const fetchSettings = async () => {
+    try {
+      const res = await fetch("/api/settings");
+      const data = await res.json();
+      if (res.ok) {
+        setWhatsappNumber(data.whatsappNumber || "");
+      }
+    } catch (err) {}
+  };
+
+  const handleSaveSettings = async (e) => {
+    e.preventDefault();
+    setActionLoading(true);
+    try {
+      const res = await fetch("/api/settings", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ whatsappNumber }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        showFeedback("Settings saved successfully!");
+        setShowSettings(false);
+      } else {
+        showFeedback(data.error || "Failed to save settings", true);
+      }
+    } catch (err) {
+      showFeedback("Failed to connect to server", true);
+    } finally {
+      setActionLoading(false);
     }
   };
 
@@ -221,7 +257,13 @@ export default function AdminDashboardPage() {
           </div>
           <div className="flex gap-4 mt-4 sm:mt-0">
             <button
-              onClick={() => setShowAddForm(!showAddForm)}
+              onClick={() => { setShowSettings(!showSettings); setShowAddForm(false); }}
+              className="bg-white border border-emerald-950/20 hover:bg-emerald-50 text-emerald-950 font-semibold text-xs py-2.5 px-5 rounded-full tracking-wider uppercase transition-colors cursor-pointer"
+            >
+              {showSettings ? "View Catalog" : "Settings"}
+            </button>
+            <button
+              onClick={() => { setShowAddForm(!showAddForm); setShowSettings(false); }}
               className="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold text-xs py-2.5 px-5 rounded-full tracking-wider uppercase transition-colors cursor-pointer"
             >
               {showAddForm ? "View Catalog" : "+ Add Product"}
@@ -381,8 +423,43 @@ export default function AdminDashboardPage() {
           </div>
         )}
 
-        {/* Add Product Form */}
-        {showAddForm ? (
+        {/* Store Settings Form */}
+        {showSettings ? (
+          <div className="glass-card rounded-3xl p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)] max-w-2xl mx-auto">
+            <h2 className="font-serif text-2xl font-bold mb-6 text-center">Global Store Settings</h2>
+            <form onSubmit={handleSaveSettings} className="space-y-6">
+              <div>
+                <label className="text-xs font-bold uppercase tracking-wider block mb-2 text-emerald-950/70">Support WhatsApp Number</label>
+                <p className="text-xs text-emerald-950/50 mb-3">Include the country code without the + sign. Example: 917038369618</p>
+                <input
+                  type="text"
+                  placeholder="e.g. 917038369618"
+                  className="w-full px-4 py-2.5 rounded-xl border border-emerald-950/10 bg-white/50"
+                  value={whatsappNumber}
+                  onChange={(e) => setWhatsappNumber(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div className="flex gap-4 pt-4 border-t border-emerald-950/10 justify-center">
+                <button
+                  type="button"
+                  onClick={() => setShowSettings(false)}
+                  className="border border-emerald-950/20 hover:bg-emerald-950/5 text-emerald-950 font-bold text-xs py-3 px-6 rounded-full tracking-wider uppercase transition-colors cursor-pointer"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={actionLoading}
+                  className="bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-xs py-3 px-6 rounded-full tracking-wider uppercase transition-colors cursor-pointer disabled:opacity-50"
+                >
+                  {actionLoading ? "Saving..." : "Save Settings"}
+                </button>
+              </div>
+            </form>
+          </div>
+        ) : showAddForm ? (
           <div className="glass-card rounded-3xl p-8 border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.02)] max-w-3xl mx-auto">
             <h2 className="font-serif text-2xl font-bold mb-6 text-center">Add New Ayurvedic Formulation</h2>
             <form onSubmit={handleAddProduct} className="space-y-6">

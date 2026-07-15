@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import clientPromise from "@/lib/mongodb";
+import { getGlobalSettings } from "@/lib/settings";
 
 async function getProduct(slug) {
   try {
@@ -20,6 +21,8 @@ async function getProduct(slug) {
 export default async function ProductDetailPage({ params }) {
   const { slug } = await params;
   const product = await getProduct(slug);
+  const settings = await getGlobalSettings();
+  const whatsappNumber = settings.whatsappNumber;
 
   if (!product) {
     notFound();
@@ -32,7 +35,7 @@ export default async function ProductDetailPage({ params }) {
   
   // URL encode the message cleanly
   const encodedMessage = encodeURIComponent(rawMessage);
-  const whatsappUrl = `https://wa.me/917038369618?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
   return (
     <div className="bg-background min-h-screen py-12 text-foreground">
