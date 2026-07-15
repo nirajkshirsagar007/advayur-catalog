@@ -20,10 +20,37 @@ async function getAdminData() {
 
 export async function POST(request) {
   try {
-    const { password, setup } = await request.json();
+    const { password, setup, action, securityQuestion, securityAnswer, newPassword } = await request.json();
     const adminData = await getAdminData();
 
-    // 1. Initial Setup Flow
+    // 1. Forgot Password Reset Flow
+    if (action === 'reset') {
+      if (!adminData || !adminData.securityAnswerHash) {
+        return NextResponse.json({ success: false, message: "Security question not configured." }, { status: 400 });
+      }
+      
+      const answerHash = hashPassword(securityAnswer.toLowerCase().trim());
+      if (answerHash !== adminData.securityAnswerHash) {
+        return NextResponse.json({ success: false, message: "Incorrect security answer." }, { status: 401 });
+      }
+
+      if (!newPassword || newPassword.length < 6) {
+        return NextResponse.json({ success: false, message: "New password must be at least 6 characters long." }, { status: 400 });
+      }
+
+      const hashedPassword = hashPassword(newPassword);
+      const client = await clientPromise;
+      const db = client.db();
+      
+      await db.collection("settings").updateOne(
+        { _id: "admin" },
+        { $set: { passwordHash: hashedPassword } }
+      );
+
+      return NextResponse.json({ success: true, message: "Password reset successfully!" });
+    }
+
+    // 2. Initial Setup Flow
     if (!adminData || setup) {
       if (!password || password.length < 6) {
         return NextResponse.json(
@@ -31,15 +58,27 @@ export async function POST(request) {
           { status: 400 }
         );
       }
+      if (!securityQuestion || !securityAnswer) {
+        return NextResponse.json(
+          { success: false, message: "Security question and answer are required." },
+          { status: 400 }
+        );
+      }
 
       const hashedPassword = hashPassword(password);
+      const answerHash = hashPassword(securityAnswer.toLowerCase().trim());
+      
       const client = await clientPromise;
       const db = client.db();
       
       // Upsert the admin settings document
       await db.collection("settings").updateOne(
         { _id: "admin" },
-        { $set: { passwordHash: hashedPassword } },
+        { $set: { 
+          passwordHash: hashedPassword,
+          securityQuestion: securityQuestion,
+          securityAnswerHash: answerHash
+        } },
         { upsert: true }
       );
 
@@ -53,10 +92,10 @@ export async function POST(request) {
         maxAge: 3600 * 2, // 2 hours
       });
 
-      return NextResponse.json({ success: true, message: "Admin password configured successfully" });
+      return NextResponse.json({ success: true, message: "Admin setup completed successfully" });
     }
 
-    // 2. Regular Login Flow
+    // 3. Regular Login Flow
     const inputHash = hashPassword(password);
     if (inputHash === adminData.passwordHash) {
       const cookieStore = await cookies();
@@ -92,12 +131,13 @@ export async function GET() {
 
   const cookieStore = await cookies();
   const session = cookieStore.get("admin_session");
+  const authenticated = session && session.value === "authenticated";
 
-  if (session && session.value === "authenticated") {
-    return NextResponse.json({ authenticated: true });
-  }
-
-  return NextResponse.json({ authenticated: false });
+  // Also return the security question (but never the answer/hash!)
+  return NextResponse.json({ 
+    authenticated: !!authenticated,
+    securityQuestion: adminData.securityQuestion || null
+  });
 }
 
 export async function DELETE() {
