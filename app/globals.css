@@ -57,3 +57,15 @@ h1, h2, h3, h4, h5, h6 {
 .gold-gradient-border {
   border-image: linear-gradient(to right, #b38b4d, #f5e3c3, #b38b4d) 1;
 }
+
+/* Chatbot Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cbd5e1;
+  border-radius: 10px;
+}
