@@ -1,6 +1,7 @@
 import { Playfair_Display, Outfit } from "next/font/google";
 import Header from "@/components/Header";
 import Logo from "@/components/Logo";
+import ChatWindow from "@/components/chatbot/ChatWindow";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -81,6 +82,7 @@ export default function RootLayout({ children }) {
             &copy; {new Date().getFullYear()} Advayur Wellness. All rights reserved.
           </div>
         </footer>
+        <ChatWindow />
       </body>
     </html>
   );
