@@ -6,6 +6,7 @@ import Link from "next/link";
 export default function Home() {
   const [activeFilter, setActiveFilter] = useState("all");
   const [productsList, setProductsList] = useState([]);
+  const [whatsappNumber, setWhatsappNumber] = useState("917038369618");
 
   useEffect(() => {
     fetch("/api/products")
@@ -16,6 +17,15 @@ export default function Home() {
         }
       })
       .catch((err) => console.error("Failed to load live catalog:", err));
+
+    fetch("/api/settings")
+      .then((res) => res.json())
+      .then((data) => {
+        if (data && data.whatsappNumber) {
+          setWhatsappNumber(data.whatsappNumber);
+        }
+      })
+      .catch((err) => console.error("Failed to load settings:", err));
   }, []);
 
   const filteredProducts = productsList.filter((product) => {
@@ -374,7 +384,7 @@ export default function Home() {
             Have questions about our products or need assistance choosing the right Ayurvedic solution? Our team is happy to help.
           </p>
           <a 
-            href="https://wa.me/917038369618?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products."
+            href={`https://wa.me/${whatsappNumber}?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products.`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 bg-accent-gold text-white font-sans text-sm font-bold uppercase tracking-wider py-4 px-8 rounded-full transition-all duration-300 shadow-md hover:shadow-lg cursor-pointer"
