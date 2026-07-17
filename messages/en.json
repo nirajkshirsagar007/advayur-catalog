@@ -1,0 +1,92 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "catalog": "Catalog",
+    "about": "About Us",
+    "contact": "Contact",
+    "admin": "Admin Portal",
+    "inquire": "Inquire",
+    "inquire_whatsapp": "Inquire via WhatsApp"
+  },
+  "Hero": {
+    "badge": "Rooted in Ayurveda. Crafted with Care.",
+    "title1": "Discover the Power of ",
+    "title2": "Authentic Ayurveda",
+    "subtitle": "Explore our carefully crafted range of Ayurvedic products made with time-tested herbs, natural ingredients, and traditional formulations to support your daily health and wellness.",
+    "explore_btn": "Explore Products",
+    "philosophy_btn": "Our Philosophy"
+  },
+  "About": {
+    "subheading": "Our Foundation",
+    "title": "About Advayur",
+    "desc1": "At Advayur, we believe true wellness begins with nature. Inspired by the timeless principles of Ayurveda, our products are thoughtfully developed using carefully selected herbs and natural ingredients. Every formulation is designed to support holistic well-being while maintaining the highest standards of quality, purity, and authenticity.",
+    "promise_title": "Our Promise",
+    "promise_desc": "We are committed to providing high-quality Ayurvedic products inspired by traditional wisdom and crafted with care to help you embrace a healthier lifestyle naturally.",
+    "promise_tags": "Pure • Authentic • Safe"
+  },
+  "Features": {
+    "title": "Why Choose Advayur?",
+    "f1_title": "Natural Ingredients",
+    "f1_desc": "Made using carefully selected herbs and plant-based ingredients.",
+    "f2_title": "Authentic Formulations",
+    "f2_desc": "Inspired by traditional Ayurvedic knowledge and modern quality standards.",
+    "f3_title": "Quality Assured",
+    "f3_desc": "Every product undergoes strict quality checks to ensure consistency and safety.",
+    "f4_title": "Holistic Wellness",
+    "f4_desc": "Supporting healthy living through natural and balanced wellness solutions."
+  },
+  "Catalog": {
+    "title": "Our Ayurvedic Collection",
+    "subtitle": "Explore our premium range of Ayurvedic products crafted to support your wellness journey naturally.",
+    "filter_all": "All Products",
+    "filter_soaps": "Soaps",
+    "filter_facewash": "Face Wash",
+    "filter_lipcare": "Lip Care",
+    "filter_candles": "Scented Candles 🌟",
+    "coming_soon": "Coming Soon",
+    "price": "Price",
+    "view_details": "View Details",
+    "key_benefits": "Key Benefits",
+    "sneak_peek": "New Creation Sneak Peek",
+    "candles_title": "Ayurvedic Scented Candles",
+    "candles_desc": "Infused with 100% pure Ayurvedic essential oils, natural soy wax, and wood-wicks to create a tranquil, meditative space in your home. Launching soon in Lavender-Sandalwood and Cardamom-Oudh blends."
+  },
+  "Testimonials": {
+    "subheading": "Customer Stories",
+    "title": "What Our Customers Say",
+    "quote": "\"The quality and authenticity of Advayur products have made them a valuable part of my daily wellness routine.\"",
+    "verified": "Verified Customer"
+  },
+  "FAQ": {
+    "title": "Frequently Asked Questions",
+    "q1": "Are your products made using natural ingredients?",
+    "a1": "Our formulations are developed using carefully selected herbs and natural ingredients inspired by Ayurvedic traditions.",
+    "q2": "How should I use the products?",
+    "a2": "Each product includes recommended usage instructions on its packaging or product page.",
+    "q3": "Are the products suitable for daily use?",
+    "a3": "Most products are designed for regular use as directed. Always read the usage instructions before use."
+  },
+  "Contact": {
+    "subheading": "Reach Out",
+    "title": "We're Here to Help",
+    "desc": "Have questions about our products or need assistance choosing the right Ayurvedic solution? Our team is happy to help.",
+    "btn": "Chat with our experts"
+  },
+  "Footer": {
+    "desc": "Rooted in ancient beauty rituals, crafted for modern life. Advayur brings you handmade organic soaps, face washes, and lip care to elevate your daily skincare.",
+    "philosophy": "Philosophy",
+    "p1": "100% Organic Botanical Extracts",
+    "p2": "Cold-Pressed Oils & Butters",
+    "p3": "Traditional Soap Curing Methods",
+    "p4": "Cruelty-Free & Zero Parabens",
+    "support": "Contact Support",
+    "q_text": "Have questions about our remedies?",
+    "chat": "Chat on WhatsApp",
+    "admin": "Admin Portal →",
+    "copyright": "© {year} Advayur Wellness. All rights reserved."
+  },
+  "Product": {
+    "add_to_cart": "Add to Cart",
+    "out_of_stock": "Out of Stock"
+  }
+}
