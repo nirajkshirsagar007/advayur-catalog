@@ -5,7 +5,7 @@ import Logo from "@/components/Logo";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 
-export default function Header({ whatsappNumber = "917038369618" }) {
+export default function Header({ whatsappNumber = "917038369618", hideLanguageSwitcher = false }) {
   const [isOpen, setIsOpen] = useState(false);
   const t = useTranslations("Navigation");
   const locale = useLocale();
@@ -60,15 +60,17 @@ export default function Header({ whatsappNumber = "917038369618" }) {
         
         {/* Desktop CTA & Language Switcher */}
         <div className="hidden md:flex items-center gap-4">
-          <select 
-            value={locale} 
-            onChange={handleLanguageChange}
-            className="bg-transparent border border-foreground/20 text-foreground text-sm rounded-md px-2 py-1 outline-none focus:border-primary-green cursor-pointer"
-          >
-            <option value="en">EN</option>
-            <option value="hi">HI</option>
-            <option value="mr">MR</option>
-          </select>
+          {!hideLanguageSwitcher && (
+            <select 
+              value={locale} 
+              onChange={handleLanguageChange}
+              className="bg-transparent border border-foreground/20 text-foreground text-sm rounded-md px-2 py-1 outline-none focus:border-primary-green cursor-pointer"
+            >
+              <option value="en">EN</option>
+              <option value="hi">HI</option>
+              <option value="mr">MR</option>
+            </select>
+          )}
           
           <a 
             href={`https://wa.me/${whatsappNumber}?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products.`}
@@ -82,15 +84,17 @@ export default function Header({ whatsappNumber = "917038369618" }) {
 
         {/* Mobile Hamburger Button & Language Switcher */}
         <div className="flex md:hidden items-center gap-3">
-          <select 
-            value={locale} 
-            onChange={handleLanguageChange}
-            className="bg-transparent border border-foreground/20 text-foreground text-xs rounded-md px-1 py-1 outline-none"
-          >
-            <option value="en">EN</option>
-            <option value="hi">HI</option>
-            <option value="mr">MR</option>
-          </select>
+          {!hideLanguageSwitcher && (
+            <select 
+              value={locale} 
+              onChange={handleLanguageChange}
+              className="bg-transparent border border-foreground/20 text-foreground text-xs rounded-md px-1 py-1 outline-none"
+            >
+              <option value="en">EN</option>
+              <option value="hi">HI</option>
+              <option value="mr">MR</option>
+            </select>
+          )}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-foreground hover:text-primary-green focus:outline-none p-2 rounded-lg cursor-pointer"
