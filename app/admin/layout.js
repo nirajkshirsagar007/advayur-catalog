@@ -34,7 +34,7 @@ export default async function AdminLayout({ children }) {
       <body className="min-h-full flex flex-col bg-background text-foreground antialiased font-sans">
         <NextIntlClientProvider locale="en" messages={messages}>
           {/* Navigation Bar */}
-          <Header whatsappNumber={whatsappNumber} />
+          <Header whatsappNumber={whatsappNumber} hideLanguageSwitcher={true} />
 
           {/* Main Content */}
           <main className="flex-grow">
@@ -62,7 +62,7 @@ export default async function AdminLayout({ children }) {
               <div>
                 <h4 className="font-serif text-md text-background tracking-wider mb-4">{messages.Footer?.support || "Contact Support"}</h4>
                 <p className="text-sm text-background/70 mb-2">{messages.Footer?.q_text || "Have questions about our remedies?"}</p>
-                <a 
+                <a
                   href={`https://wa.me/${whatsappNumber}?text=Hi%20Advayur!%20I%20have%20a%20question%20about%20your%20products.`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -71,8 +71,8 @@ export default async function AdminLayout({ children }) {
                   {messages.Footer?.chat || "Chat on WhatsApp"}
                 </a>
                 <div className="pt-2 border-t border-background/10">
-                  <a 
-                    href="/admin/login" 
+                  <a
+                    href="/admin/login"
                     className="text-xs text-background/50 hover:text-accent-gold transition-colors font-medium tracking-wide uppercase"
                   >
                     {messages.Footer?.admin || "Admin Portal \u2192"}
